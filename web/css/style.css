@@ -21,7 +21,7 @@ html {
 7. dia chi
 8. dki
 */
-
+/*header*/
 .header{
     width: 100%;
     height: auto;
@@ -65,6 +65,90 @@ html {
     text-transform: uppercase;
     font-weight: 700;
 
+}
+
+/*slide*/
+.slidershow{
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.middle{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.navigation{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.bar{
+    width: 50px;
+    height: 10px;
+    border: 2px solid #fff;
+    margin: 6px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.bar:hover{
+    background-color: #fff;
+}
+
+input[name="r"]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides{
+    width: 500%;
+    height: 100%;
+    display: flex;
+}
+
+.slide{
+    width: 20%;
+    transition: 0.6s;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+
+#r1:checked ~ .s1{
+    margin-left: 0;
+}
+#r2:checked ~ .s1{
+    margin-left: -20%;
+}
+#r3:checked ~ .s1{
+    margin-left: -40%;
+}
+#r4:checked ~ .s1{
+    margin-left: -60%;
+}
+
+.slidershow .text-box{
+    position: absolute;
+    width: 750px;
+    height: 200px;
+    top: 300px;
+    left: 100px;
+    color: white;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 10px 20px;
+    display: flex;
+}
+
+.slidershow .text-box h1{
+    margin-bottom: 20px;
 }
 
 
