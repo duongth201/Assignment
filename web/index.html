@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+
 <head>
     <title>Pshychiatrist</title>
     <meta charset="UTF-8">
@@ -12,143 +13,171 @@ and open the template in the editor.
     <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
+    
+
     <div class="main">
-        <!-- header -->
-        <div class="header">
-            <div class="nav">
-                <div class="menuLeft">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#aboutus">About us</a></li>
-                    </ul>
-                </div>
-                <div class="logo">
-                    <a href="#"><img src="img/logo1.png" alt="THIENHONG"></a>
-                </div>
-                <div class="menuRight">
-                    <ul>
-                        <li><a href="#feedback">Feedback</a></li>
-                        <li><a href="#book">Book</a></li>
-                    </ul>
-                </div>
+        <!-- header starts  -->
+        <header class="header">
+            <div class="logo">
+                <a href="#"><img src="img/logo1.png" alt="THIENHONG"></a>
             </div>
-        </div>
-        <!-- slide -->
-         
-        <div class="slidershow middle">
-            <div class="slides">
-                <input type="radio" name="r" id="r1" checked>
-                <input type="radio" name="r" id="r2">
-                <input type="radio" name="r" id="r3">
 
-                <div class="slide s1">
-                    <img src="img/slide1.jpg" alt="">
-                    <div class="text-box">
-                        <div class="slide-content">
-                            <h1>The right help at the right time</h1>
-                            <span></span>
-                            <p> this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
-                            </p>
-                            <a href="#">FIND OUT MORE</a>
+            <nav class="navbar">
+                <a href="#home">home</a>
+                <a href="#services">services</a>
+                <a href="#about">about</a>
+                <a href="#doctors">doctors</a>
+                <a href="#book">book</a>
+                <a href="#review">review</a>
+            </nav>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+
+        </header>
+
+        <!-- header ends -->
+        <!-- home start -->
+        <section class="home image" id="home">
+
+
+            <div class="slidershow middle ">    
+
+                <div class="slides">
+                    <input type="radio" name="r" id="r1" checked>
+                    <input type="radio" name="r" id="r2">
+                    <input type="radio" name="r" id="r3">
+    
+                    <div class="slide s1">
+                        <img src="img/slide1.jpg" alt="">
+                        <div class="text-box">
+                            <div class="content">
+                                <h3>The right help at the right time</h3>
+                                <span></span>
+                                <p> this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
+                                </p>
+                                <a href="#">FIND OUT MORE</a>
+                            </div>
+                            
                         </div>
-                        
                     </div>
-                </div>
-                <div class="slide">
-                    <img src="img/slide2.jpg" alt="">
-                    <div class="text-box">
-                        <div class="slide-content">
-                            <h1>Happy & fulfilling
-                                marriage yet again</h1>
-                            <span></span>
-                            <p> a this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
-                            </p>
-                            <a href="#">FIND OUT MORE</a>
+                    <div class="slide">
+                        <img src="img/slide2.jpg" alt="">
+                        <div class="text-box">
+                            <div class="content">
+                                <h3>Happy & fulfilling
+                                    marriage yet again</h3>
+                                <span></span>
+                                <p> a this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
+                                </p>
+                                <a href="#">FIND OUT MORE</a>
+                            </div>
+    
                         </div>
-
                     </div>
-                </div>
-                <div class="slide">
-                    <img src="img/slide3.jpg" alt="">
-                    <div class="text-box">
-                        <div class="slide-content">
-                            <h1>33333333333</h1>
-                            <span></span>
-                            <p> a this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
-                            </p>
-                            <a href="#">FIND OUT MORE</a>
+                    <div class="slide">
+                        <img src="img/slide3.jpg" alt="">
+                        <div class="text-box">
+                            <div class="content">
+                                <h3>33333333333</h3>
+                                <span></span>
+                                <p> a this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
+                                </p>
+                                <a href="#">FIND OUT MORE</a>
+                            </div>
+    
                         </div>
-
                     </div>
                 </div>
+    
+                <div class="navigation">
+                    <label for="r1" class="bar"></label>
+                    <label for="r2" class="bar"></label>
+                    <label for="r3" class="bar"></label>
+                </div>  
             </div>
+        </section>
+        
+        <!-- home ends -->
 
-            <div class="navigation">
-                <label for="r1" class="bar"></label>
-                <label for="r2" class="bar"></label>
-                <label for="r3" class="bar"></label>
-            </div>  
-        </div>
 
-        <!-- content -->
-        <div class="content">
-            <!-- doctor -->
-            <div class="content-section aboutus">
-                <div class="section-img col-md-6 col-sm-12">
-                    <img src="img/slide1.jpg" alt="">
+        <!-- services starts  -->
+
+        <section class="services" id="services">
+
+            <h1 class="heading"> our <span>services</span> </h1>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <i class="fas fa-notes-medical"></i>
+                    <h3>free checkups</h3>
+                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
-                <div class="section-sub col-md-6">
-                    <h3>The name behind the respectful results</h3>
-                    <span></span>
-                    <h1>Dr Joanna Bryan</h1>
-                    <p> Vivamus pretium pellentesque vestibulum. In mollis, elit vitae rhoncus pellentesque, arcu quam imperdiet ex, vitae congue tellus turpis sed tortor. Morbi consequat vel dolor quis venenatis. Aenean non interdum purus. Maecenas sem nunc, ullamcorper sit amet nulla quis, porta pharetra velit. Nam eros nisl, consequat sit amet pharetra.</p>
+
+                <div class="box">
+                    <i class="fas fa-user-md"></i>
+                    <h3>expert doctors</h3>
+                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
-            </div>
-            <!-- step -->
-            <div class="row content-section book">
-                    <div class="step1 col-md-3">
-                        <h3>The name behind the respectful results</h3>
-                    </div>
-                    <div class="step2 col-md-3">
-                        <h3>The name behind the respectful results</h3>
-                    </div>
-                    <div class="step3 col-md-3">
-                        <h3>The name behind the respectful results</h3>
-                    </div>
-                    <div class="step4 col-md-3">
-                        <h3>The name behind the respectful results</h3>
-                    </div>
-            </div>
-            
-            <!-- feedback -->
-            <div class="content-section">
-                <div class="section-sub col-md-6">
-                    <h3>The name behind the respectful results</h3>
-                    <span></span>
-                    <h1>Dr Joanna Bryan</h1>
-                    <p> Vivamus pretium pellentesque vestibulum. In mollis, elit vitae rhoncus pellentesque, arcu quam imperdiet ex, vitae congue tellus turpis sed tortor. Morbi consequat vel dolor quis venenatis. Aenean non interdum purus. Maecenas sem nunc, ullamcorper sit amet nulla quis, porta pharetra velit. Nam eros nisl, consequat sit amet pharetra.</p>
+
+                <div class="box">
+                    <i class="fas fa-pills"></i>
+                    <h3>medicines</h3>
+                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
-                <div class="section-img col-md-6 col-sm-12">
-                    <img src="img/slide1.jpg" alt="">
+
+                <div class="box">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>total care</h3>
+                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
-            </div>
-
-            <div class="address">
-                <img src="img/map.jpg" alt="">
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="support">
 
             </div>
-            <div class="link">
 
-            </div>
-        </div>
-    </div>
+        </section>
+
+        <!-- services ends -->
+
+        <!-- aboutus starts  -->
+
+        <section class="about" id="about">
+        </section>
+
+        <!-- aboutus ends -->
+
+        <!-- doctors starts  -->
+
+        <section class="doctors" id="doctors">
+        </section>
+
+        <!-- doctors ends -->
+
+        <!-- book starts   -->
+        <section class="book" id="book">
+        </section>
+        <!-- booking ends -->
+
+        <!-- review starts  -->
+        <section class="review" id="review">
+        </section>
+        <!-- review end  -->
+
+        <!-- footer starts  -->
+        <section class="footer">
+        </section>
+        <!-- footer ends -->
+
+</div>
+    
 </body>
-
 </html>
