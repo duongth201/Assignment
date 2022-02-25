@@ -295,7 +295,140 @@ input[name="r"]{
     line-height: 2;
 }
 /* docter */
+.about .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:4rem;
+}
 
+.about .row .image{
+    flex:1 1 45rem;
+}
+
+.about .row .image img{
+    width: 90%;
+}
+
+.about .row .content{
+    flex:1 1 45rem;
+}
+
+.about .row .content h3{
+    color:#444;
+    text-shadow: .4rem .4rem 0 rgba(0, 0, 0, .2);
+    font-size: 4rem;
+    line-height: 1.8;
+}
+
+.about .row .content p{
+    color: #777;
+    padding:1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.doctors .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+}
+
+.doctors .box-container .box{
+    text-align: center;
+    background:#fff;
+    border-radius: .5rem;
+    border:.2rem solid #ca4012;
+    box-shadow:.5rem .5rem 0 rgba(22, 160, 133, .2);
+    padding:2rem;
+}
+
+.doctors .box-container .box img{
+    height: 20rem;
+    width: 32rem;
+    border:.2rem solid #ca4012;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.doctors .box-container .box h3{
+    color:#444;
+    font-size: 2.5rem;
+}
+
+.doctors .box-container .box span{
+    color:#ca4012;
+    font-size: 1.5rem;
+}
+
+.doctors .box-container .box .share{
+    padding-top: 2rem;
+}
+
+.doctors .box-container .box .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    color:#ca4012;
+    border-radius: .5rem;
+    border:.2rem solid #ca4012;
+    margin:.3rem;
+}
+
+.doctors .box-container .box .share a:hover{
+    background:#ca4012;
+    color:#fff;
+    box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);
+}
+
+/*book*/
+.book .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+ 
+.book .row .image{
+    flex:1 1 45rem;
+}
+
+.book .row .image img{
+    width: 100%;
+}
+
+.book .row form{
+    flex:1 1 45rem;
+    background: #fff;
+    border:.2rem solid #ca4012;
+    box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);
+    text-align: center;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.book .row form h3{
+    color:#444;
+    padding-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.book .row form .box{
+    width: 100%;
+    margin:.7rem 0;
+    border-radius: .5rem;
+    border:.2rem solid #ca4012;
+    font-size: 1.6rem;
+    color: #ca4012;
+    text-transform: none;
+    padding: 1rem;
+}
+
+.book .row form .btn{
+    padding:1rem 4rem;
+}
 /* feedback */
 
 
