@@ -397,6 +397,7 @@ input[name="r"]{
 
 .book .row .image img{
     width: 100%;
+    margin: 0 -10px;
 }
 
 .book .row form{
@@ -430,12 +431,63 @@ input[name="r"]{
     padding:1rem 4rem;
 }
 /* feedback */
+.review .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap:2rem;
+}
+
+.review .box-container .box{
+    border:.2rem solid #ca4012;
+    box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);
+    border-radius: .5rem;
+    padding:2.5rem;
+    background: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.review .box-container .box img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border:.5rem solid #fff;
+}
+
+.review .box-container .box h3{
+    color:#fff;
+    font-size: 2.2rem;
+    padding:.5rem 0;
+}
+
+
+.review .box-container .box .text{
+    color:#777;
+    line-height: 1.8;
+    font-size: 1.6rem;
+    padding-top: 4rem;
+}
+
+.review .box-container .box::before{
+    content: '';
+    position: absolute;
+    top:-4rem; left: 50%;
+    transform:translateX(-50%);
+    background:#ca4012;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    height: 25rem;
+    width: 120%;
+    z-index: -1;
+}
 
 
 
 
-
-
+/*something*/
 .section-sub span{
     border: 1px solid #ca4012;
     display: block;
