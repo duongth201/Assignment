@@ -118,6 +118,10 @@ section:nth-child(even){
     color: #ca4012;
 }
 
+.header nav{
+    padding-top: 22px; 
+}
+
 #menu-btn{
     font-size: 2.5rem;
     border-radius: .5rem;
@@ -223,7 +227,7 @@ input[name="r"]{
 .slidershow .text-box{
     position: absolute;
     width: 600px;
-    height: 220px;
+    height: 275px;
     top: 200px;
     left: 200px;
     color: white;
@@ -506,4 +510,17 @@ input[name="r"]{
     width: 100%;
 }
 
+
+@media (min-width: 768px){
+    .slidershow .text-box {
+        left:88px;
+    }
+    
+    .about .row .content{
+        padding-left: 5rem;
+    }
+    .doctors .box-container .box img{
+        width: 26rem;
+    }
+}
 
