@@ -12,69 +12,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="here">
-        <div class="login-wrap">
-            <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                <div class="login-form">
-                    <div class="sign-in-htm">
-                        <div class="group">
-                            <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign In">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Cancel">
-                        </div>
-                        <div class="hr"></div>
-                        <div class="foot-lnk">
-                            <a href="#forgot">Forgot Password?</a>
-                        </div>
-                    </div>
-                    <div class="sign-up-htm">
-                        <div class="group">
-                            <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Repeat Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Email Address</label>
-                            <input id="pass" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign Up">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Cancel">
-                        </div>
-                        <div class="hr"></div>
-                        <div class="foot-lnk">
-                            <label for="tab-1">Already Member?</a>
-                        </div>
-                    </div>
+    <div class="container" id="container">
+
+        <div class="form-container sign-up-container">
+            <form action="register" method="post"><!--action forgot pass register--> 
+                <h1>Create Account</h1>
+
+                <span>Make your own Account</span>
+                <input type="username" placeholder="Username" name="user"/>
+                <input type="password" placeholder="Password" name="pass"/>
+                <input type="password" placeholder="Reenter Password" name="rpass"/>
+                <input type="text" placeholder="Your Name" name="name"/>
+                <input type="email" placeholder="Email" name="email"/>
+                <input type="text" placeholder="Phone Number" name="phone"/>
+                <input type="text" placeholder="Address" name="address"/>
+
+                <button>
+                    <input class="btn" type="submit" value="REGISTER" onclick="return Validate()"/>
+                </button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form action="login" method="post">
+                <h1>Sign in</h1>
+
+                <span>Use your account</span>
+                <input type="text" placeholder="Username" name="user"/>
+                <input type="password" placeholder="Password" name="pass"/>
+
+                <a href="#">Forgot your password?</a>
+                <button>
+                    <input class="btn" type="submit" value="LOGIN"/>
+                </button>
+                <a class="home" href="home1">HOME</a>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost signIn" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right ">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost signIn" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>
     </div>
 
-    
 </body>
+<script src="js/login.js"></script>
 </html>
