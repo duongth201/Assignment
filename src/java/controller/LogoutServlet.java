@@ -5,26 +5,18 @@
  */
 package controller;
 
-import DAL.HumanDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Humans;
 
 /**
  *
  * @author ADMIN
  */
-public class HumanCreate extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,8 +29,19 @@ public class HumanCreate extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("../add.jsp").forward(request, response);
-
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LogoutServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,29 +70,7 @@ public class HumanCreate extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
-        boolean gender;
-        String name = request.getParameter("name");
-        if (request.getParameter("gender").equalsIgnoreCase("Male")) {
-            gender = true;
-        } else {
-            gender = false;
-        }
-        String date = request.getParameter("date");
-        Date dob = null;
-        try {
-            dob = spf.parse(date);
-        } catch (ParseException ex) {
-            response.sendRedirect("create");
-        }
-        java.sql.Date sqlDate = new java.sql.Date(dob.getTime());
-
-        Humans s = new Humans(name, gender, sqlDate);
-        HumanDAO sdao = new HumanDAO();
-        sdao.insertStudent(s);
-
-        response.sendRedirect("list");
-
+        processRequest(request, response);
     }
 
     /**
