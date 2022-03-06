@@ -497,17 +497,53 @@ input[name="r"]{
     display: block;
     width: 50px;
 }
-
-/* map */
-.address img{
+/*maps*/
+.maps iframe{
     width: 100%;
+    height: 500px;
+}
+/*footer*/
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap:2rem;
+    margin-left: 32rem;
 }
 
-/* footer */
-.footer{
-    background-color: aquamarine;
-    height: 100px;
-    width: 100%;
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color:#ca4012;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    color:#777;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:#ca4012;
+}
+
+.footer .box-container .box a:hover i{
+    padding-right:2rem;
+}
+
+.footer .credit{
+    padding: 1rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    color:#777;
+    border-top: .1rem solid rgba(0, 0, 0, .1);
+}
+
+.footer .credit span{
+    color:#ca4012;
 }
 
 
