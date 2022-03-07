@@ -23,14 +23,11 @@ public abstract class BaseDAO<T> {
        try {
            String user = "sa";
            String pass = "sa";
-           String url = "jdbc:sqlserver://localhost:1433;databaseName=";//namedatabase
+           String url = "jdbc:sqlserver://localhost:1433;databaseName=ass_prj";//namedatabase
            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
            connection = DriverManager.getConnection(url, user, pass);
        } catch (ClassNotFoundException | SQLException ex) {
            Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
        }
    }
-   
-   public abstract ArrayList<T> getStudents();
-   
 }

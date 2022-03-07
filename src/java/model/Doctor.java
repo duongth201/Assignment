@@ -15,17 +15,47 @@ public class Doctor {
     private String doctorPosition;
     private int doctorAge;
     private String doctorPhone;
-
+    private String doctorAccount;
+    private String doctorPass;
+    
+    
     public Doctor() {
     }
 
-    public Doctor(String doctorID, String doctorName, String doctorPosition, int doctorAge, String doctorPhone) {
+    public Doctor(String doctorID, String doctorName, String doctorAccount, String doctorPass) {
+        this.doctorID = doctorID;
+        this.doctorName = doctorName;
+        this.doctorAccount = doctorAccount;
+        this.doctorPass = doctorPass;
+    }
+
+    public Doctor(String doctorID, String doctorName, String doctorPosition, int doctorAge, String doctorPhone, String doctorAccount, String doctorPass) {
         this.doctorID = doctorID;
         this.doctorName = doctorName;
         this.doctorPosition = doctorPosition;
         this.doctorAge = doctorAge;
         this.doctorPhone = doctorPhone;
+        this.doctorAccount = doctorAccount;
+        this.doctorPass = doctorPass;
     }
+    
+    public String getDoctorAccount() {
+        return doctorAccount;
+    }
+
+    public void setDoctorAccount(String doctorAccount) {
+        this.doctorAccount = doctorAccount;
+    }
+
+    public String getDoctorPass() {
+        return doctorPass;
+    }
+
+    public void setDoctorPass(String doctorPass) {
+        this.doctorPass = doctorPass;
+    }
+
+
 
     public String getDoctorID() {
         return doctorID;

@@ -21,17 +21,27 @@ import java.util.Objects;
  * @author admin
  */
 public class Account implements Serializable{
+    private String id;
     private String username;
     private String password;
-    private int role; //0 s 1 doc 2 pati
+    private String name;
 
     public Account() {
     }
 
-    public Account(String username, String password, int role) {
+    public Account(String id, String username, String password,String name) {
+        this.id = id;
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -50,18 +60,21 @@ public class Account implements Serializable{
         this.password = password;
     }
 
-    public int getRole() {
-        return role;
+    public String getName() {
+        return name;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Account{" + "username=" + username + ", password=" + password + ", role=" + role + '}';
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
+
+
+
 
     
 }

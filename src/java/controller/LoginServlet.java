@@ -5,12 +5,17 @@
  */
 package controller;
 
+import DAL.AccountsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
+import model.Doctor;
 
 /**
  *
@@ -56,7 +61,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -70,7 +75,52 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        String u = request.getParameter("username");
+//        String p = request.getParameter("password");
+//        AccountsDAO db = new AccountsDAO();
+//        Account a = db.getAPAdmin(u, p);
+//        if (u.isEmpty() || p.isEmpty()) {
+//            request.setAttribute("errorLogin", "You need to fill all the blanks");
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+//        } else {
+//            if (a == null) {
+//                //chua co hoac goc nham
+//                request.setAttribute("errorLogin", "This Account does not exist!");
+//                request.getRequestDispatcher("login.jsp").forward(request, response);
+//            } else {
+//                Doctor d = db.getDoctorInfo(a);
+//                HttpSession session = request.getSession();
+//                session.setAttribute("customer", d);
+//                session.setAttribute("acc", a);
+//                response.sendRedirect("detail.jsp");
+//            }
+//        }
+        String username = request.getParameter("username");
+       String password = request.getParameter("password");
+       AccountsDAO db = new AccountsDAO();
+       Account account =  db.getAPAdmin(username, password);
+       if(account != null) // login successfully!
+       {
+           String remember = request.getParameter("remember");
+           if(remember !=null)
+           {
+               Cookie c_user = new Cookie("username", username);
+               Cookie c_pass = new Cookie("password", password);
+               c_user.setMaxAge(3600*24*30);
+               c_pass.setMaxAge(3600*24*30);
+               response.addCookie(c_pass);
+               response.addCookie(c_user);
+           }
+           HttpSession session = request.getSession();
+           session.setAttribute("acc", account);
+//           session.setMaxInactiveInterval(10);
+
+           response.sendRedirect("index.html");
+       }
+       else //login fail
+       {
+           request.getRequestDispatcher("login.jsp").forward(request, response);
+       }
     }
 
     /**

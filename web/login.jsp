@@ -38,14 +38,14 @@
                 <h1>Sign in</h1>
 
                 <span>Use your account</span>
-                <input type="text" placeholder="Username" name="user"/>
-                <input type="password" placeholder="Password" name="pass"/>
-
+                <input type="text" placeholder="Username" name="username"/>
+                <input type="password" placeholder="Password" name="password"/>
+                <input type="checkbox" name="remember" value="remember"/> Remember me
                 <a href="#">Forgot your password?</a>
                 <button>
                     <input class="btn" type="submit" value="LOGIN"/>
                 </button>
-                <a class="home" href="home1">HOME</a>
+                <a class="home" href="index.html">HOME</a>
             </form>
         </div>
 
