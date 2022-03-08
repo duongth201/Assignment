@@ -1,9 +1,9 @@
-<!--<!DOCTYPE html>
-
+<!DOCTYPE html>
+<!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
-
+-->
 <html>
 
 <head>
@@ -22,7 +22,7 @@ and open the template in the editor.
     
 
     <div class="main">
-         header starts  
+        <!-- header starts  -->
         <header class="header">
             <div class="logo">
                 <a href="#"><img src="img/logo1.png" alt="THIENHONG"></a>
@@ -45,8 +45,8 @@ and open the template in the editor.
 
         </header>
 
-         header ends 
-         home start 
+        <!-- header ends -->
+        <!-- home start -->
         <section class="home image" id="home">
 
 
@@ -58,40 +58,37 @@ and open the template in the editor.
                     <input type="radio" name="r" id="r3">
     
                     <div class="slide s1">
-                        <img src="" alt="">
+                        <img src="img/slide1.jpg" alt="">
                         <div class="text-box">
                             <div class="content">
                                 <h3>The right help at the right time</h3>
                                 <span></span>
-                                <p> this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
-                                </p>
+                                <p>With her professional experience lasting for more than 25 years, Dr Joanna Bryan is the right call for patients suffering from depression, anqiety or longing for psychiatrist assistance.</p>
                                 <a href="#">FIND OUT MORE</a>
                             </div>
                             
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="" alt="">
+                        <img src="img/slide2.jpg" alt="">
                         <div class="text-box">
                             <div class="content">
                                 <h3>Happy & fulfilling
                                     marriage yet again</h3>
                                 <span></span>
-                                <p> a this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
-                                </p>
+                                <p>Dr Joanna Bryan?s professional counselling also includes marriage counselling, advising and solving marriage problems, so you can enjoy it with your partner for a long time</p>
                                 <a href="#">FIND OUT MORE</a>
                             </div>
     
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="" alt="">
+                        <img src="img/slide3.jpg" alt="">
                         <div class="text-box">
                             <div class="content">
-                                <h3>33333333333</h3>
+                                <h3>Taking, Listening and Understand You</h3>
                                 <span></span>
-                                <p> a this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this
-                                </p>
+                                <p>Sed molestie dui eget turpis sodales mollis. Suspendisse feugiat nec neque eu eleifend. Sed eu velit eget nulla feugiat suscipit consequat vel erat. Vivamus pharetra, est id placerat fringilla, ex arcu mattis dui, nec varius mauris nisl et nibh. </p>
                                 <a href="#">FIND OUT MORE</a>
                             </div>
     
@@ -107,10 +104,10 @@ and open the template in the editor.
             </div>
         </section>
         
-         home ends 
+        <!-- home ends -->
 
 
-         services starts  
+        <!-- services starts  -->
 
         <section class="services" id="services">
 
@@ -121,28 +118,28 @@ and open the template in the editor.
                 <div class="box">
                     <i class="fas fa-notes-medical"></i>
                     <h3>free checkups</h3>
-                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <p>Quisque tincidunt est elementum semper. Suspendisse a interdum lacinia eu eget dolor.</p>
                     <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
 
                 <div class="box">
                     <i class="fas fa-user-md"></i>
                     <h3>expert doctors</h3>
-                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <p>Duis tempor vestibulum ullamcorper. Nam sapien purus, tempus sit, varius vel ipsum.</p>
                     <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
 
                 <div class="box">
                     <i class="fas fa-pills"></i>
                     <h3>medicines</h3>
-                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <p>Mauris dui magna, consectetur nec dignissim ut, pellentesque sit amet nisl. Etiam varius at leo.</p>
                     <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
 
                 <div class="box">
                     <i class="fas fa-heartbeat"></i>
                     <h3>total care</h3>
-                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                    <p>Morbi eget orci dictum, imperdiet felis in, finibus lorem. Nunc sed ex massa.</p>
                     <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
                 </div>
 
@@ -150,9 +147,9 @@ and open the template in the editor.
 
         </section>
 
-         services ends 
+        <!-- services ends -->
 
-         aboutus starts  
+        <!-- aboutus starts  -->
 
         <section class="about" id="about">
             <h1 class="heading"> <span>about us</span> </h1>
@@ -160,22 +157,22 @@ and open the template in the editor.
             <div class="row">
 
                 <div class="image col-md-6">
-                    <img src="img/map.jpg" alt="">
+                    <img src="img/aboutus.png" alt="">
                 </div>
 
-                <div class="content col-md-6">
-                    <h3>we take care of your healthy life</h3>
-                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
-                    <p>Oil prices broke above $100 a barrel for the first time since 2014, stock markets slumped.</p>
+                <div class="content col-md-6" ">
+                    <h3>We Take Care Of Your Healthy Life</h3>
+                    <p style="text-transform: none;">I wish the world could know the wonderful things that are happening on the Cosgrove hospital, who have had an injury.?</p>
+                    <p style="text-transform: none;">I pray each day for all of you and thank you from the bottom of my heart.</p>
                     <a href="#" class="btn"> more <span class="fas fa-chevron-right"></span> </a>
                 </div>
 
             </div>
         </section>
 
-         aboutus ends 
+        <!-- aboutus ends -->
 
-         doctors starts  
+        <!-- doctors starts  -->
 
         <section class="doctors" id="doctors">
             <h1 class="heading"> <span>our doctors</span> </h1>
@@ -183,8 +180,8 @@ and open the template in the editor.
             <div class="box-container">
 
                 <div class="box">
-                    <img src="img/map.jpg" alt="">
-                    <h3>john deo</h3>
+                    <img src="img/doctor.jpg" alt="">
+                    <h3>Jonna Byan</h3>
                     <span>expert doctor</span>
                     <div class="share">
                         <a href="#" class="fab fa-facebook-f"></a>
@@ -194,8 +191,8 @@ and open the template in the editor.
                 </div>
 
                 <div class="box">
-                    <img src="img/map.jpg" alt="">
-                    <h3>john deo</h3>
+                    <img src="img/doctor1.png" alt="">
+                    <h3>harry giuru</h3>
                     <span>expert doctor</span>
                     <div class="share">
                         <a href="#" class="fab fa-facebook-f"></a>
@@ -205,8 +202,8 @@ and open the template in the editor.
                 </div>
 
                 <div class="box">
-                    <img src="img/map.jpg" alt="">
-                    <h3>john deo</h3>
+                    <img src="img/doctor2.png" alt="">
+                    <h3>david back</h3>
                     <span>expert doctor</span>
                     <div class="share">
                         <a href="#" class="fab fa-facebook-f"></a>
@@ -216,8 +213,8 @@ and open the template in the editor.
                 </div>
 
                 <div class="box">
-                    <img src="img/map.jpg" alt="">
-                    <h3>john deo</h3>
+                    <img src="img/doctor3.jpg" alt="">
+                    <h3>Charles Daniel</h3>
                     <span>expert doctor</span>
                     <div class="share">
                         <a href="#" class="fab fa-facebook-f"></a>
@@ -229,16 +226,16 @@ and open the template in the editor.
             </div>
         </section>
 
-         doctors ends 
+        <!-- doctors ends -->
 
-         book starts   
+        <!-- book starts   -->
         <section class="book" id="book">
              <h1 class="heading"> <span>book now</span> </h1>    
 
             <div class="row">
 
                 <div class="image">
-                    <img src="img/map.jpg" alt="">
+                    <img src="img/book.jpg" alt="">
                 </div>
 
                 <form action="">
@@ -252,48 +249,48 @@ and open the template in the editor.
 
             </div>
         </section>
-         booking ends 
+        <!-- booking ends -->
 
-         review starts  
+        <!-- review starts  -->
         <section class="review" id="review">
             <h1 class="heading"> <span>feedback</span> </h1>
 
             <div class="box-container">
 
                 <div class="box">
-                    <img src="image/pic-1.png" alt="">
-                    <h3>john</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+                    <img src="img/f1.jpg" alt="">
+                    <h3>john will</h3>
+                    <p class="text">Thank you for putting in the extra effort during this busy time at work. I understand that staying late isn't easy, but the team truly appreciates it. You are a valuable member of our team, and your positive attitude has helped us all continue to feel motivated.</p>
                 </div>
 
                 <div class="box">
-                    <img src="image/pic-2.png" alt="">
-                    <h3>john</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+                    <img src="img/f2.jpg" alt="">
+                    <h3>hanna lexis</h3>
+                    <p class="text">your work looks great! It's clear that you care about your work and take the time to do it correctly. I especially liked that you asked the client about their design preferences before creating their website, and I'm excited to see what you do next.</p>
                 </div>
 
                 <div class="box">
-                    <img src="image/pic-3.png" alt="">
-                    <h3>john</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+                    <img src="img/f3.jpg" alt="">
+                    <h3>marry eliz</h3>
+                    <p class="text">You've been doing a great job lately. You're so talented at staying flexible on any project, which helps everyone on the team. You have grown so much in your role since starting here. Thank you for your hard work, and let me know if there is anything I can do to make working here better.</p>
                 </div>
                 
                 <div class="box">
-                    <img src="image/pic-3.png" alt="">
-                    <h3>john</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+                    <img src="img/f4.jpg" alt="">
+                    <h3>vamn hilltom</h3>
+                    <p class="text">I'm really happy with your determination to finish this project. I know it wasn't easy, but I knew you could do it. Your helpful attitude makes it clear that you can continue to take on new challenges and grow with the company. Thank you for your extra effort.</p>
                 </div>
 
             </div>
         </section>
-         review end  
+        <!-- review end  -->
 
-         maps 
+        <!-- maps -->
         <section class="maps">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29672.249308562!2d105.64949600478518!3d21.623709277327524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134dbaba9db4539%3A0x2e2ce56872a16848!2zQuG7h25oIFZp4buHbiDEkGEga2hvYSBIdXnhu4duIMSQ4bqhaSBU4bur!5e0!3m2!1svi!2s!4v1646239930271!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
         </section>
         
-         footer starts  
+        <!-- footer starts  -->
         <section class="footer">
             <div class="box-container">
 
@@ -322,9 +319,9 @@ and open the template in the editor.
                     <a href="#"> <i class="fas fa-envelope"></i> gmail </a>
                 </div>
         </section>
-         footer ends 
+        <!-- footer ends -->
 
 </div>
     
 </body>
-</html>-->
+</html>

@@ -21,27 +21,18 @@ import java.util.Objects;
  * @author admin
  */
 public class Account implements Serializable{
-    private String id;
+    
     private String username;
     private String password;
-    private String name;
+    private int role;
 
     public Account() {
     }
 
-    public Account(String id, String username, String password,String name) {
-        this.id = id;
+    public Account(String username, String password, int role) {
         this.username = username;
         this.password = password;
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -60,13 +51,14 @@ public class Account implements Serializable{
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public int getRole() {
+        return role;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRole(int role) {
+        this.role = role;
     }
+
 
     @Override
     public String toString() {

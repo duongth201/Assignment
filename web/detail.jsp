@@ -1,20 +1,105 @@
-<%-- 
-    Document   : detail
-    Created on : Mar 7, 2022, 11:50:23 PM
-    Author     : ADMIN
---%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@page import="DAL.AccountDAO"%>
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Doctor"%>
+<%--<%@page import="DAL.AccountDAO"%>--%>
 <%@page import="model.Account"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-
+        <title>Detail Doctor Page</title>
+        <link rel="stylesheet" href="css/detail.css" type="text/css" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
+        
     </head>
     <body>
-        <h1>Hello World! </h1>
+        <header class="header">
+            <div class="logo">
+                <a href="#"><img src="img/logo1.png" alt="THIENHONG"></a>
+            </div>
+
+            <nav class="navbar">
+                <a href="index.jsp">Home</a>
+                <a href="index.jsp">Services</a>
+                <a href="index.jsp">About</a>
+                <a href="index.jsp">Doctors</a>
+                <a href="index.jsp">Book</a>
+                <a href="index.jsp">Review</a>
+            </nav>
+
+            <div class="navbar" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+                <a href="#"></a>
+                <a href="index.jsp" class="login" style="margin: 0 1rem;"> <i class="fas fa-user"></i>Sign out</a>
+            </div>
+            
+            <div id="menu-btn" class="fas fa-bars"></div>
+
+        </header>
+        
+        <div class="container-lg ">
+            <div class="container" style="margin-top: 140px">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-8"><h2>Employee <b>Details</b></h2></div>
+                            <div class="col-sm-4" style=" text-align: center">
+                                <button type="button" class="btn btn-info add-new" style="background: #ca4012; border-color: #ca4012;">
+                                    <i class="fa fa-plus"></i> Add New
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Department ID</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Account</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="s" items="${requestScope.doctor}">
+                                <tr>
+                                    <td>
+                                        ${s.doctorID}
+                                    </td> 
+                                    <td>
+                                        ${s.departmentID}
+                                    </td>
+                                    <td>
+                                        ${s.doctorName}
+                                    </td>
+                                    <td>
+                                         
+                                    </td>                
+                                    <td>
+                                        ${s.doctorAge}
+                                    </td>
+                                    <td>
+                                        ${s.account.getUsername()}
+                                    </td>
+                                    <td>   
+
+                                    <a href="update?id=s.getDoctorID()">  Update</a>
+                                    <a href="#" onclick = "Delete(s.getDoctorID())">Delete</a>
+                                    </td>
+
+                                </tr>
+                            </c:forEach>
+  
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>     
     </body>
 </html>

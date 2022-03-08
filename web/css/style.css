@@ -328,6 +328,7 @@ input[name="r"]{
     line-height: 1.8;
 }
 
+
 .doctors .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -541,6 +542,7 @@ input[name="r"]{
 .footer .credit span{
     color:#ca4012;
 }
+
 
 
 @media (min-width: 768px){

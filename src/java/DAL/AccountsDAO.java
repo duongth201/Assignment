@@ -21,14 +21,14 @@ import model.Doctor;
 */
 public class AccountsDAO extends BaseDAO<Account> {
 
-   public Account getAPAdmin(String username, String password) {
+   public Account getAP(String username, String password) {
        try {
-            String sql = "SELECT[supervisorID]\n" +
-                        "      ,[supervisorName]\n" +
-                        "      ,[supervisorAccount]\n" +
-                        "      ,[supervisorPass]\n" +
-                        "  FROM [ass_prj].[dbo].[Supervisor]\n" +
-                        "  WHERE [supervisorAccount] = '?' AND [supervisorPass] = '?'";
+            String sql = "SELECT [username]\n" +
+                        "      ,[password]\n" +
+                        "      ,[role]\n" +
+                        "  FROM [ass_prj].[dbo].[Account]\n" +
+                        "\n" +
+                        "  WHERE [username] = ? AND [password] = ?";
            PreparedStatement statement = connection.prepareStatement(sql);
            statement.setString(1, username);
            statement.setString(2, password);
@@ -36,11 +36,9 @@ public class AccountsDAO extends BaseDAO<Account> {
            ResultSet rs = statement.executeQuery();
            if (rs.next()) {
                Account s = new Account();
-               s.setId(rs.getString("supervisorID"));
-               s.setName(rs.getString("supervisorName"));
-               s.setUsername(rs.getString("supervisorAccount"));
-               s.setPassword(rs.getString("supervisorPass"));
-               
+               s.setUsername(rs.getString("username"));
+               s.setPassword(rs.getString("password"));
+               s.setRole(rs.getInt("role"));
                return s;
            }
 
@@ -50,24 +48,46 @@ public class AccountsDAO extends BaseDAO<Account> {
        return null;
    }
 
-    public Doctor getDoctorInfo(Account a) {
-        String sql = "SELECT [doctorID]\n" +
-"      ,[doctorName]\n" +
-"      ,[doctorAccount]\n" +
-"      ,[doctorPass]\n" +
-"  FROM [dbo].[Doctor]";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, a.getUsername());
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                return new Doctor(a.getId(), a.getName(), a.getUsername(), a.getPassword());
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+   
+   public ArrayList<Doctor> getDoctors() {
+       ArrayList<Doctor> students = new ArrayList<>();
+       try {
+           String sql = "SELECT [doctorID]\n" +
+                        "      ,[departmentID]\n" +
+                        "      ,[doctorName]\n" +
+                        "      ,[doctorPosition]\n" +
+                        "      ,[doctorAge]\n" +
+                        "      ,[doctorGender]\n" +
+                        "      ,[doctorPhone]\n" +
+                        "	  ,a.[username]\n" +
+                        "	  ,a.[password]\n" +
+                        "	  ,a.[role]\n" +
+                        "  FROM [ass_prj].[dbo].[Doctor] d inner join [ass_prj].[dbo].[Account] a \n" +
+                        "  on d.[username] = a.[username]";
+           PreparedStatement statement = connection.prepareStatement(sql);
+           ResultSet rs = statement.executeQuery();
+           while(rs.next())
+           {
+               Doctor s = new Doctor();
+               s.setDoctorID(rs.getString("doctorID"));
+               s.setDepartmentID(rs.getString("departmentID"));
+               s.setDoctorName(rs.getString("doctorName"));
+               s.setDoctorAge(rs.getInt("doctorAge"));
+               s.setDoctorGender(rs.getBoolean("doctorGender"));
+               s.setDoctorPhone(rs.getString("doctorPhone"));
+               s.setAccount(new Account(rs.getString("username"), rs.getString("password"), 1));
+               students.add(s);
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return students;
+   }
 
-        return null;
-    }
 
+    
+//    public static void main(String[] args) {
+//        AccountsDAO ac = new AccountsDAO();
+//        System.out.println(ac.getAP("s1", "1").getUsername());
+//    }
 }

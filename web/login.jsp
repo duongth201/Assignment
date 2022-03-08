@@ -45,7 +45,7 @@
                 <button>
                     <input class="btn" type="submit" value="LOGIN"/>
                 </button>
-                <a class="home" href="index.html">HOME</a>
+                <a class="home" href="index.jsp">HOME</a>
             </form>
         </div>
 

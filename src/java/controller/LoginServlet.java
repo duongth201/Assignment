@@ -8,6 +8,7 @@ package controller;
 import DAL.AccountsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet LoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
@@ -75,52 +76,51 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String u = request.getParameter("username");
-//        String p = request.getParameter("password");
-//        AccountsDAO db = new AccountsDAO();
-//        Account a = db.getAPAdmin(u, p);
-//        if (u.isEmpty() || p.isEmpty()) {
-//            request.setAttribute("errorLogin", "You need to fill all the blanks");
-//            request.getRequestDispatcher("login.jsp").forward(request, response);
-//        } else {
-//            if (a == null) {
-//                //chua co hoac goc nham
-//                request.setAttribute("errorLogin", "This Account does not exist!");
-//                request.getRequestDispatcher("login.jsp").forward(request, response);
-//            } else {
-//                Doctor d = db.getDoctorInfo(a);
-//                HttpSession session = request.getSession();
-//                session.setAttribute("customer", d);
-//                session.setAttribute("acc", a);
-//                response.sendRedirect("detail.jsp");
-//            }
-//        }
         String username = request.getParameter("username");
-       String password = request.getParameter("password");
-       AccountsDAO db = new AccountsDAO();
-       Account account =  db.getAPAdmin(username, password);
-       if(account != null) // login successfully!
-       {
-           String remember = request.getParameter("remember");
-           if(remember !=null)
-           {
-               Cookie c_user = new Cookie("username", username);
-               Cookie c_pass = new Cookie("password", password);
-               c_user.setMaxAge(3600*24*30);
-               c_pass.setMaxAge(3600*24*30);
-               response.addCookie(c_pass);
-               response.addCookie(c_user);
-           }
-           HttpSession session = request.getSession();
-           session.setAttribute("acc", account);
-//           session.setMaxInactiveInterval(10);
+        String password = request.getParameter("password");
+        AccountsDAO db = new AccountsDAO();
+        Account account = db.getAP(username, password);
+//       response.getWriter().print(username);
+//       response.getWriter().print(password);
 
-           response.sendRedirect("index.html");
-       }
-       else //login fail
-       {
-           request.getRequestDispatcher("login.jsp").forward(request, response);
-       }
+        if (account != null) // login successfully!
+        {
+            String remember = request.getParameter("remember");
+            if (remember != null) {
+                Cookie c_user = new Cookie("username", username);
+                Cookie c_pass = new Cookie("password", password);
+                Cookie c_role = new Cookie("role", account.getRole()+"");
+                c_user.setMaxAge(3600 * 24 * 30);
+                c_pass.setMaxAge(3600 * 24 * 30);
+                c_role.setMaxAge(3600 * 24 * 30);
+                response.addCookie(c_pass);
+                response.addCookie(c_user);
+                response.addCookie(c_role);
+            }
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", account);
+            
+//           session.setMaxInactiveInterval(10);
+//            ArrayList<Doctor> d = db.getDoctors();
+//            request.setAttribute("doctor", d);
+        switch(account.getRole()){
+            case 0:
+                request.setAttribute("doctor", db.getDoctors());
+                request.getRequestDispatcher("detail.jsp").forward(request, response);
+                break;
+            case 1:
+                response.sendRedirect("time.jsp");
+                break;
+            case 2:
+                response.sendRedirect("course.jsp");
+                break;
+        }
+        
+            
+        } else //login fail
+        {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     /**

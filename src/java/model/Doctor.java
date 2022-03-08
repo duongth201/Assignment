@@ -11,51 +11,27 @@ package model;
  */
 public class Doctor {
     private String doctorID;
+    private String departmentID;
     private String doctorName;
-    private String doctorPosition;
+//    private String doctorPosition;
+    private boolean doctorGender;
     private int doctorAge;
     private String doctorPhone;
-    private String doctorAccount;
-    private String doctorPass;
     
+    private Account account;
     
     public Doctor() {
     }
 
-    public Doctor(String doctorID, String doctorName, String doctorAccount, String doctorPass) {
+    public Doctor(String doctorID, String departmentID, String doctorName, boolean doctorGender, int doctorAge, String doctorPhone, Account account) {
         this.doctorID = doctorID;
+        this.departmentID = departmentID;
         this.doctorName = doctorName;
-        this.doctorAccount = doctorAccount;
-        this.doctorPass = doctorPass;
-    }
-
-    public Doctor(String doctorID, String doctorName, String doctorPosition, int doctorAge, String doctorPhone, String doctorAccount, String doctorPass) {
-        this.doctorID = doctorID;
-        this.doctorName = doctorName;
-        this.doctorPosition = doctorPosition;
+        this.doctorGender = doctorGender;
         this.doctorAge = doctorAge;
         this.doctorPhone = doctorPhone;
-        this.doctorAccount = doctorAccount;
-        this.doctorPass = doctorPass;
+        this.account = account;
     }
-    
-    public String getDoctorAccount() {
-        return doctorAccount;
-    }
-
-    public void setDoctorAccount(String doctorAccount) {
-        this.doctorAccount = doctorAccount;
-    }
-
-    public String getDoctorPass() {
-        return doctorPass;
-    }
-
-    public void setDoctorPass(String doctorPass) {
-        this.doctorPass = doctorPass;
-    }
-
-
 
     public String getDoctorID() {
         return doctorID;
@@ -63,6 +39,14 @@ public class Doctor {
 
     public void setDoctorID(String doctorID) {
         this.doctorID = doctorID;
+    }
+
+    public String getDepartmentID() {
+        return departmentID;
+    }
+
+    public void setDepartmentID(String departmentID) {
+        this.departmentID = departmentID;
     }
 
     public String getDoctorName() {
@@ -73,12 +57,12 @@ public class Doctor {
         this.doctorName = doctorName;
     }
 
-    public String getDoctorPosition() {
-        return doctorPosition;
+    public boolean isDoctorGender() {
+        return doctorGender;
     }
 
-    public void setDoctorPosition(String doctorPosition) {
-        this.doctorPosition = doctorPosition;
+    public void setDoctorGender(boolean doctorGender) {
+        this.doctorGender = doctorGender;
     }
 
     public int getDoctorAge() {
@@ -96,6 +80,15 @@ public class Doctor {
     public void setDoctorPhone(String doctorPhone) {
         this.doctorPhone = doctorPhone;
     }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
 
     @Override
     public String toString() {

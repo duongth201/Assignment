@@ -18,16 +18,19 @@ public class Patient {
     String patientPhone;
     String patientEmail;
 
+    private Account account;
+    
     public Patient() {
     }
 
-    public Patient(String patientID, String patientName, boolean patientGender, String patientAddress, String patientPhone, String patientEmail) {
+    public Patient(String patientID, String patientName, boolean patientGender, String patientAddress, String patientPhone, String patientEmail, Account account) {
         this.patientID = patientID;
         this.patientName = patientName;
         this.patientGender = patientGender;
         this.patientAddress = patientAddress;
         this.patientPhone = patientPhone;
         this.patientEmail = patientEmail;
+        this.account = account;
     }
 
     public String getPatientID() {
@@ -77,6 +80,18 @@ public class Patient {
     public void setPatientEmail(String patientEmail) {
         this.patientEmail = patientEmail;
     }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    
+
+    
 
     @Override
     public String toString() {
