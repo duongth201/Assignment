@@ -13,8 +13,8 @@
         <title>Detail Doctor Page</title>
         <link rel="stylesheet" href="css/detail.css" type="text/css" />
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         
     </head>
     <body>
@@ -32,10 +32,25 @@
                 <a href="index.jsp">Review</a>
             </nav>
 
-            <div class="navbar" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+            <ul class="header-links pull-right" style="list-style-type: none; display: flex;">
+                <c:if test="${sessionScope.acc.role == 0}">
+                    <li>
+                        <a href="#" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+                            <i class="fas fa-user"></i>${sessionScope.acc.username}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="logout" class="login" style="margin: 0 1rem; color: #ca4012; border: 1px solid #ca4012;padding: 1rem 1rem;"> 
+                            Log out
+                        </a>
+                    </li>
+                </c:if>
+
+            </ul>
+<!--            <div class="navbar" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
                 <a href="#"></a>
                 <a href="index.jsp" class="login" style="margin: 0 1rem;"> <i class="fas fa-user"></i>Sign out</a>
-            </div>
+            </div>-->
             
             <div id="menu-btn" class="fas fa-bars"></div>
 
@@ -48,9 +63,11 @@
                         <div class="row">
                             <div class="col-sm-8"><h2>Employee <b>Details</b></h2></div>
                             <div class="col-sm-4" style=" text-align: center">
-                                <button type="button" class="btn btn-info add-new" style="background: #ca4012; border-color: #ca4012;">
-                                    <i class="fa fa-plus"></i> Add New
-                                </button>
+                                <form action="create">
+                                    <button type="submit" class="btn btn-info add-new" style="background: #ca4012; border-color: #ca4012;">
+                                        <i class="fa fa-plus"></i> Add New
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -79,8 +96,8 @@
                                         ${s.doctorName}
                                     </td>
                                     <td>
-                                         
-                                    </td>                
+                                        <input type="checkbox" ${s.doctorGender=='1' ? "checked":""} />
+                                    </td>             
                                     <td>
                                         ${s.doctorAge}
                                     </td>
@@ -89,8 +106,8 @@
                                     </td>
                                     <td>   
 
-                                    <a href="update?id=s.getDoctorID()">  Update</a>
-                                    <a href="#" onclick = "Delete(s.getDoctorID())">Delete</a>
+                                    <a href="update?id=${s.doctorID}"> Update</a>
+                                    <a href="#" onclick = "Delete(${s.getDoctorID()})">Delete</a>
                                     </td>
 
                                 </tr>
@@ -102,4 +119,14 @@
             </div>
         </div>     
     </body>
+    
+    <script>
+       function Delete(id){
+           var option = confirm('Are you sure you want to delete?');
+           if(option === true) {
+               window.location.href = 'delete?id=' + id;
+           }
+       }
+       
+   </script>
 </html>

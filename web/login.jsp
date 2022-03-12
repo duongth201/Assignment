@@ -15,17 +15,16 @@
     <div class="container" id="container">
 
         <div class="form-container sign-up-container">
-            <form action="register" method="post"><!--action forgot pass register--> 
+            <form action="signup" method="post"><!--action forgot pass register--> 
                 <h1>Create Account</h1>
 
                 <span>Make your own Account</span>
-                <input type="username" placeholder="Username" name="user"/>
-                <input type="password" placeholder="Password" name="pass"/>
-                <input type="password" placeholder="Reenter Password" name="rpass"/>
-                <input type="text" placeholder="Your Name" name="name"/>
-                <input type="email" placeholder="Email" name="email"/>
-                <input type="text" placeholder="Phone Number" name="phone"/>
-                <input type="text" placeholder="Address" name="address"/>
+                <input type="username" placeholder="Username" name="user" required/>
+                <input type="password" placeholder="Password" name="pass" required/>
+                <input type="password" placeholder="Reenter Password" name="rpass" required/>
+                <input type="text" placeholder="Your Name" name="name" required/>
+                <input type="email" placeholder="Email" name="email" required/>
+                <input type="text" placeholder="Phone Number" name="phone" required/>
 
                 <button>
                     <input class="btn" type="submit" value="REGISTER" onclick="return Validate()"/>

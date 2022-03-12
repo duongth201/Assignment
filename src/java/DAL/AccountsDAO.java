@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
 import model.Doctor;
+import model.Patient;
 
 /**
 *
@@ -85,6 +86,68 @@ public class AccountsDAO extends BaseDAO<Account> {
    }
 
 
+   public void insertAccountPatient(Patient p) {
+       try {
+           String sql = "INSERT INTO [dbo].[Patient]\n" +
+                        "           ([patientName]\n" +
+                        "           ,[patientAddress]\n" +
+                        "           ,[patientPhone]\n" +
+                        "           ,[username])\n" +
+                        "     VALUES\n" +
+                        "           ?" +
+                        "           ,?\n" +
+                        "           ,?\n" +
+                        "           ,?)";
+           PreparedStatement statement = connection.prepareStatement(sql);
+           statement.setString(1, p.getPatientName());
+           statement.setString(2, p.getPatientAddress());
+           statement.setString(3, p.getPatientPhone());
+           statement.setString(4, p.getAccount().getUsername());
+           statement.executeUpdate();
+       } catch (SQLException ex) {
+           Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
+   
+   public void insertAccountUser(Account a) {
+       try {
+           String sql = "INSERT INTO [dbo].[Account]\n" +
+                        "           ([username]\n" +
+                        "           ,[password]\n" +
+                        "           ,[role])\n" +
+                        "     VALUES(\n" +
+                        "           ?\n" +
+                        "           ,?\n" +
+                        "           ,2)";
+           PreparedStatement statement = connection.prepareStatement(sql);
+           statement.setString(1, a.getUsername());
+           statement.setString(2, a.getPassword());
+           statement.executeUpdate();
+       } catch (SQLException ex) {
+           Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
+   
+   public Patient checkAccout(String user){
+       try {
+            String sql = "SELECT [patientName],[username] FROM [ass_prj].[dbo].[Patient] \n" +
+                            "WHERE [username] = ?";
+           PreparedStatement statement = connection.prepareStatement(sql);
+           statement.setString(1, user);
+
+           ResultSet rs = statement.executeQuery();
+           if (rs.next()) {
+               Patient p = new Patient();
+               Account a = new Account();
+               p.setPatientName(rs.getString("patientName"));
+               a.setUsername(rs.getString("username"));
+                return p;
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return null;
+   }
     
 //    public static void main(String[] args) {
 //        AccountsDAO ac = new AccountsDAO();

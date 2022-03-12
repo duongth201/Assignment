@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -37,10 +38,32 @@ and open the template in the editor.
                 <a href="#review">review</a>
             </nav>
 
-            <div class="navbar" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+<!--            <div class="navbar" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
                 <a href="login.jsp" class="login" style="margin: 0 1rem;"> <i class="fas fa-user"></i>Sign in</a>
-            </div>
-            
+            </div>-->
+            <c:if test="${sessionScope.acc == null}">
+
+                <div class="navbar" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+                    <a href="login.jsp" class="login" style="margin: 0 1rem;"> <i class="fas fa-user"></i>Sign in</a>
+                </div>
+
+            </c:if>
+            <c:if test="${sessionScope.acc.role == 2}">
+            <ul class="header-links pull-right" style="list-style-type: none; display: flex;">
+                
+                    <li>
+                        <a href="#" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+                            <i class="fas fa-user"></i>${sessionScope.acc.username}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="logout" class="login" style="margin: 0 1rem; color: #ca4012; border: 1px solid #ca4012;padding: 1rem 1rem;"> 
+                            Log out
+                        </a>
+                    </li>
+                
+            </ul>
+            </c:if>
             <div id="menu-btn" class="fas fa-bars"></div>
 
         </header>
@@ -240,11 +263,11 @@ and open the template in the editor.
 
                 <form action="">
                     <h3>book appointment</h3>
-                    <input type="text" placeholder="your name" class="box">
-                    <input type="number" placeholder="your number" class="box">
-                    <input type="email" placeholder="your email" class="box">
+                    <input type="text" placeholder="Your name" class="box">
+                    <input type="number" placeholder="Your number" class="box">
+                    <input type="email" placeholder="Your email" class="box">
                     <input type="date" class="box">
-                    <input type="submit" value="book now" class="btn">
+                    <a href="course.jsp" class="btn">Book now</a>
                 </form>
 
             </div>

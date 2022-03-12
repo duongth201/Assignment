@@ -18,12 +18,12 @@ public class Supervisor {
     private String supervisorName;
     private Date supervisorDob;
     private String supervisorPhone;
-    private String username;
+    private Account username;
 
     public Supervisor() {
     }
 
-    public Supervisor(int ID, String supervisorCode, String departmentID, String supervisorName, Date supervisorDob, String supervisorPhone, String username) {
+    public Supervisor(int ID, String supervisorCode, String departmentID, String supervisorName, Date supervisorDob, String supervisorPhone, Account username) {
         this.ID = ID;
         this.supervisorCode = supervisorCode;
         this.departmentID = departmentID;
@@ -81,11 +81,11 @@ public class Supervisor {
         this.supervisorPhone = supervisorPhone;
     }
 
-    public String getUsername() {
+    public Account getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(Account username) {
         this.username = username;
     }
 
