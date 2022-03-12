@@ -1,8 +1,3 @@
-<%-- 
-    Document   : doctorcreate
-    Created on : Mar 12, 2022, 10:14:30 AM
-    Author     : ADMIN
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

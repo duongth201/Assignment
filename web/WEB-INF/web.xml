@@ -5,7 +5,7 @@
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DoctorAdd</servlet-name>
+        <servlet-name>DoctorCreate</servlet-name>
         <servlet-class>controller.DoctorCreate</servlet-class>
     </servlet>
     <servlet>
@@ -54,3 +54,4 @@
         </session-timeout>
     </session-config>
 </web-app>
+

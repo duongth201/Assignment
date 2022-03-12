@@ -80,7 +80,7 @@
                                 <th>Gender</th>
                                 <th>Age</th>
                                 <th>Account</th>
-                                
+                                <th>Password</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,6 +104,9 @@
                                     <td>
                                         ${s.account.getUsername()}
                                     </td>
+<!--                                    <td>
+                                        
+                                    </td>-->
                                     <td>   
 
                                     <a href="update?id=${s.doctorID}"> Update</a>

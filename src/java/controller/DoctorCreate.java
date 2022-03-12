@@ -7,9 +7,6 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,10 +35,10 @@ public class DoctorCreate extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DoctorAdd</title>");            
+            out.println("<title>Servlet DoctorCreate</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DoctorAdd at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DoctorCreate at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -73,28 +70,7 @@ public class DoctorCreate extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
-        boolean gender;
-        String name = request.getParameter("name");
-        if (request.getParameter("gender").equalsIgnoreCase("Male")) {
-            gender = true;
-        } else {
-            gender = false;
-        }
-        String date = request.getParameter("date");
-        Date dob = null;
-        try {
-            dob = spf.parse(date);
-        } catch (ParseException ex) {
-            response.sendRedirect("create");
-        }
-        java.sql.Date sqlDate = new java.sql.Date(dob.getTime());
-        String email = request.getParameter("email");
-//        Student s = new Student(name, gender, sqlDate, email);
-//        StudentDAO sdao = new StudentDAO();
-//        sdao.insertStudent(s);
-
-        response.sendRedirect("detail.jsp");
+        processRequest(request, response);
     }
 
     /**
