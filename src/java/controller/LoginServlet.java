@@ -105,14 +105,16 @@ public class LoginServlet extends HttpServlet {
 //            request.setAttribute("doctor", d);
         switch(account.getRole()){
             case 0:
-                request.setAttribute("doctor", db.getDoctors());
-                request.getRequestDispatcher("detail.jsp").forward(request, response);
+//                request.setAttribute("doctor", db.getDoctors());
+//                request.getRequestDispatcher("detail.jsp").forward(request, response);
+                request.getRequestDispatcher("doctorlist").forward(request, response);
+
                 break;
             case 1:
                 response.sendRedirect("time.jsp");
                 break;
             case 2:
-                response.sendRedirect("course.jsp");
+                response.sendRedirect("course");
                 break;
         }
         

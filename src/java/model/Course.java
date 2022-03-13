@@ -13,15 +13,31 @@ public class Course {
     private String courseID;
     private String courseName;
     private String courseTime;
-
+    private String coursePrice;
+    private String courseImg;
+    private String courseInfo;
+    private Doctor d;
     public Course() {
     }
 
-    public Course(String courseID, String courseName, String courseTime) {
+    public Course(String courseID, String courseName, String courseTime, String coursePrice, String courseImg, String courseInfo) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.courseTime = courseTime;
+        this.coursePrice = coursePrice;
+        this.courseImg = courseImg;
+        this.courseInfo = courseInfo;
     }
+
+    public String getCourseInfo() {
+        return courseInfo;
+    }
+
+    public void setCourseInfo(String courseInfo) {
+        this.courseInfo = courseInfo;
+    }
+
+    
 
     public String getCourseID() {
         return courseID;
@@ -47,9 +63,49 @@ public class Course {
         this.courseTime = courseTime;
     }
 
+    public String getCoursePrice() {
+        return coursePrice;
+    }
+
+    public void setCoursePrice(String coursePrice) {
+        this.coursePrice = coursePrice;
+    }
+
+    public String getCourseImg() {
+        return courseImg;
+    }
+
+    public void setCourseImg(String courseImg) {
+        this.courseImg = courseImg;
+    }
+
+    public Course(String courseID, String courseName, String courseTime, String coursePrice, String courseImg, String courseInfo, Doctor d) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.courseTime = courseTime;
+        this.coursePrice = coursePrice;
+        this.courseImg = courseImg;
+        this.courseInfo = courseInfo;
+        this.d = d;
+    }
+
+    public Doctor getD() {
+        return d;
+    }
+
+    public void setD(Doctor d) {
+        this.d = d;
+    }
+
+
+
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Course{" + "courseID=" + courseID + ", courseName=" + courseName + ", courseTime=" + courseTime + ", coursePrice=" + coursePrice + ", courseImg=" + courseImg + ", courseInfo=" + courseInfo + ", d=" + d + '}';
     }
+
+    
+
+    
     
 }

@@ -24,6 +24,13 @@ public class Patient {
     public Patient() {
     }
 
+    public Patient(String patientName, String patientPhone, String patientEmail, Account account) {
+        this.patientName = patientName;
+        this.patientPhone = patientPhone;
+        this.patientEmail = patientEmail;
+        this.account = account;
+    }
+    
     public Patient(String patientName, String patientAddress, String patientPhone, String patientEmail, Account account) {
         this.patientName = patientName;
         this.patientAddress = patientAddress;

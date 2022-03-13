@@ -23,6 +23,19 @@ public class Doctor {
     public Doctor() {
     }
 
+    public Doctor(String doctorName) {
+        this.doctorName = doctorName;
+    }
+    
+    public Doctor(String doctorID, String departmentID, String doctorName,int doctorAge, boolean doctorGender,  Account account) {
+        this.doctorID = doctorID;
+        this.departmentID = departmentID;
+        this.doctorName = doctorName;
+        this.doctorGender = doctorGender;
+        this.doctorAge = doctorAge;
+        this.account = account;
+    }
+
     public Doctor(String doctorID, String departmentID, String doctorName, boolean doctorGender, int doctorAge, String doctorPhone, Account account) {
         this.doctorID = doctorID;
         this.departmentID = departmentID;

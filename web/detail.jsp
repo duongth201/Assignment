@@ -63,11 +63,11 @@
                         <div class="row">
                             <div class="col-sm-8"><h2>Employee <b>Details</b></h2></div>
                             <div class="col-sm-4" style=" text-align: center">
-                                <form action="create">
+                                <!--<form action="create">-->
                                     <button type="submit" class="btn btn-info add-new" style="background: #ca4012; border-color: #ca4012;">
-                                        <i class="fa fa-plus"></i> Add New
+                                        <i class="fa fa-plus"></i> <a href="create">Add New</a>
                                     </button>
-                                </form>
+                                <!--</form>-->
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                                         ${s.doctorName}
                                     </td>
                                     <td>
-                                        <input type="checkbox" ${s.doctorGender=='1' ? "checked":""} />
+                                        <input type="checkbox" ${s.doctorGender=='1' ? "":"checked"} />
                                     </td>             
                                     <td>
                                         ${s.doctorAge}
@@ -110,7 +110,7 @@
                                     <td>   
 
                                     <a href="update?id=${s.doctorID}"> Update</a>
-                                    <a href="#" onclick = "Delete(${s.getDoctorID()})">Delete</a>
+                                    <a href="#" onclick = "Delete('${s.doctorID}', '${s.account.getUsername()}')">Delete</a>
                                     </td>
 
                                 </tr>
@@ -124,11 +124,13 @@
     </body>
     
     <script>
-       function Delete(id){
-           var option = confirm('Are you sure you want to delete?');
+       function Delete(doctorID, username){
+//           console.log(doctorID);
+           var option = confirm('Are you sure you want to delete? \ndoctorID: ' + doctorID +'\nAccount: ' + username);
            if(option === true) {
-               window.location.href = 'delete?id=' + id;
+               window.location.href = 'delete?doctorID=' + doctorID+'&account='+username;
            }
+           
        }
        
    </script>

@@ -31,7 +31,7 @@ and open the template in the editor.
 
             <nav class="navbar">
                 <a href="#home">home</a>
-                <a href="#services">services</a>
+                <a href="course">courses</a>
                 <a href="#about">about</a>
                 <a href="#doctors">doctors</a>
                 <a href="#book">book</a>
@@ -52,7 +52,7 @@ and open the template in the editor.
             <ul class="header-links pull-right" style="list-style-type: none; display: flex;">
                 
                     <li>
-                        <a href="#" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+                        <a href="profile" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
                             <i class="fas fa-user"></i>${sessionScope.acc.username}
                         </a>
                     </li>
@@ -267,7 +267,7 @@ and open the template in the editor.
                     <input type="number" placeholder="Your number" class="box">
                     <input type="email" placeholder="Your email" class="box">
                     <input type="date" class="box">
-                    <a href="course.jsp" class="btn">Book now</a>
+                    <a href="course" class="btn">Book now</a>
                 </form>
 
             </div>

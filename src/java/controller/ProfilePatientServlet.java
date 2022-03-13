@@ -5,21 +5,22 @@
  */
 package controller;
 
-import DAL.DoctorDAO;
+import DAL.PatientDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Account;
-import model.Doctor;
+import model.Patient;
 
 /**
  *
  * @author ADMIN
  */
-public class DoctorCreate extends HttpServlet {
+public class ProfilePatientServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +39,10 @@ public class DoctorCreate extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DoctorCreate</title>");            
+            out.println("<title>Servlet ProfilePatientServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DoctorCreate at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ProfilePatientServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,8 +60,16 @@ public class DoctorCreate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-request.getRequestDispatcher("doctorcreate.jsp").forward(request, response);
+//        String username = 
+        HttpSession session = request.getSession();
+        Account a = (Account) session.getAttribute("acc");
+        Patient p = new Patient();
+        PatientDAO pdao = new PatientDAO();
+        p = pdao.getPatient(a.getUsername());
+//        response.getWriter().println(p);
+        request.setAttribute("patient", p);
+        
+        request.getRequestDispatcher("accinfo.jsp").forward(request, response);
     }
 
     /**
@@ -74,26 +83,20 @@ request.getRequestDispatcher("doctorcreate.jsp").forward(request, response);
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-  
+        HttpSession session = request.getSession();
         String name = request.getParameter("name");
-        String id = request.getParameter("id");
-        String departid = request.getParameter("departid");
-        int age = Integer.parseInt(request.getParameter("age")) ;
-        boolean gender;
-        if (request.getParameter("gender").equalsIgnoreCase("Male")) {
-            gender = true;
-        } else {
-            gender = false;
-        }
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
         
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Doctor d = new Doctor(id, departid, username, age, gender, new Account(username, password, 2));
-        DoctorDAO ddao = new DoctorDAO();
-        ddao.insertAccDoctor(new Account(username, password, 2));
-        ddao.insertDoctor(d);
+        Patient p = new Patient(name, phone, email, (Account) session.getAttribute("acc"));
+        PatientDAO pdao = new PatientDAO();
+        pdao.updatePatient(p);
 
-        response.sendRedirect("doctorlist");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+//        out.print("Update Successful!!");
+//        request.setAttribute("mess", "Update Successful!!");
+        response.sendRedirect("index.jsp");
     }
 
     /**

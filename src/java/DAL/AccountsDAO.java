@@ -85,7 +85,7 @@ public class AccountsDAO extends BaseDAO<Account> {
        return students;
    }
 
-
+//signup
    public void insertAccountPatient(Patient p) {
        try {
            String sql = "INSERT INTO [dbo].[Patient]\n" +
@@ -149,8 +149,8 @@ public class AccountsDAO extends BaseDAO<Account> {
        return null;
    }
     
-    public static void main(String[] args) {
-        AccountsDAO ac = new AccountsDAO();
-        System.out.println(ac.getAP("s1", "1").getUsername());
-    }
+//    public static void main(String[] args) {
+//        AccountsDAO ac = new AccountsDAO();
+//        System.out.println(ac.getAP("s1", "1").getUsername());
+//    }
 }
