@@ -63,7 +63,7 @@
                         <li>INFORMATION:</li>
                         <li><a href="profile">Profile</a></li>
                         <li> / </li>
-                        <li><a href="pcourse.jsp">Course</a></li>
+                        <li><a href="pcourse">Course</a></li>
                     </ul>
                     <div class="col-md-12">
                         <!-- Billing Details -->

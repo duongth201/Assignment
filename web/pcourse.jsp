@@ -11,9 +11,10 @@
         <title>Profile</title>
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
         <link type="text/css" rel="stylesheet" href="css/accinfo.css"/>
+        <link rel="stylesheet" href="css/course.css" type="text/css" />
         <!-- Bootstrap -->
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
@@ -78,7 +79,7 @@
                                     <input type="text" class="form-control" name="id" value="${sessionScope.acc.username}" readonly>
                                 </div>
 
-                                <c:forEach var="c" items="${requestScope.numbercourse}">
+                                <c:forEach var="c" items="${requestScope.c}">
                                     <div class="container">
                                         <div class="row content-info">
                                             <div class="col-lg-3">
@@ -93,9 +94,7 @@
                                                     <p class="">
                                                         ${c.courseInfo}
                                                     </p>
-                                                    <div class="tm-next enroll">
-                                                        <a href="#" class="">ENROLL</a>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

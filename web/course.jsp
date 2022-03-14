@@ -85,7 +85,17 @@
                                 ${c.courseInfo}
                             </p>
                             <div class="tm-next enroll">
-                                <a href="#" class="">ENROLL</a>
+                                <!--<a href="enroll?cid=${c.courseID}" class="">ENROLL </a>-->
+                                
+            <c:if test="${sessionScope.acc == null}">
+                <a href="login.jsp" class="">ENROLL </a>
+                
+
+            </c:if>
+            <c:if test="${sessionScope.acc.role == 2}">
+                <a href="enroll?cid=${c.courseID}" class="">ENROLL </a>
+            </c:if>
+                                
                             </div>
                         </div>
                     </div>

@@ -65,6 +65,7 @@ public class CourseDAO extends BaseDAO<Course> {
         return -1;
     }
 //pageindex - phan trang
+
     public ArrayList<Course> getPageCourses(int pageindex, int pagesize) {
         ArrayList<Course> course = new ArrayList<>();
         try {
@@ -96,13 +97,33 @@ public class CourseDAO extends BaseDAO<Course> {
         return course;
 
     }
-//    public static void main(String[] args) {
-//        CourseDAO db = new CourseDAO();
+
+//    enroll course
+    public void getEnroll(String patientId, String courseId) {
+        try {
+            String sql = "INSERT INTO [dbo].[Patient_Course]\n"
+                    + "           ([patientID]\n"
+                    + "           ,[courseID])\n"
+                    + "     VALUES\n"
+                    + "           (?\n"
+                    + "           ,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, patientId);
+            statement.setString(2, courseId);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void main(String[] args) {
+        CourseDAO db = new CourseDAO();
 //        ArrayList<Course> c = new ArrayList<>();
-//        c = db.getCourses();
+//        c = db.getPageCourses(1, 4);
 //        for (Course a : c) {
 //            System.out.println(a);
 //        }
-//        
-//    }
+//        db.getEnroll("6", "A01");
+
+    }
 }
