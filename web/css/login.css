@@ -156,6 +156,10 @@ input {
 
 }
 
+.sign-in-container p{
+    color: red;
+}
+
 .container.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;

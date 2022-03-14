@@ -36,6 +36,14 @@
         <servlet-name>ProfilePatientServlet</servlet-name>
         <servlet-class>controller.ProfilePatientServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnrollCourseServlet</servlet-name>
+        <servlet-class>controller.EnrollCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PCourseServlet</servlet-name>
+        <servlet-class>controller.PCourseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>ProfilePatientServlet</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnrollCourseServlet</servlet-name>
+        <url-pattern>/enroll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PCourseServlet</servlet-name>
+        <url-pattern>/pcourse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,11 +1,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="tag" uri="WEB-INF/tlds/tag.tld" %>
+<%@page import="util.HtmlHelper"%>
+<%@page import="model.Course"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
         <title>Profile</title>
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
@@ -70,29 +71,36 @@
                         <div class="billing-details">
                             <form action="profile"  method="post">
                                 <div class="section-title">
-                                    <h3 class="title text-center">PROFILE</h3>
+                                    <h3 class="title text-center">COURSE</h3>
                                 </div>
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input type="text" class="form-control" name="id" value="${sessionScope.acc.username}" readonly>
                                 </div>
-                                <div class="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" class="form-control" name="name" value="${requestScope.patient.patientName}">
-                                </div>
 
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" value="${requestScope.patient.patientEmail}">
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="text" class="form-control" name="phone" value="${requestScope.patient.patientPhone}">
-                                </div>
-                                <input type="submit" class="btn" value="Save" onclick = "Mess('${sessionScope.acc.username}')"/>
-                                <!--                                <div class="form-group">
-                                                                    
-                                                                </div>-->
+                                <c:forEach var="c" items="${requestScope.numbercourse}">
+                                    <div class="container">
+                                        <div class="row content-info">
+                                            <div class="col-lg-3">
+                                                <img src="${c.courseImg}" alt="Image" class="tm-intro-img" />  <!--img -->
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <div class="tm-intro-text-container">
+                                                    <h2 class="">${c.courseName}</h2>
+                                                    <h4>
+                                                        Price: ${c.coursePrice}$ - Time: ${c.courseTime} - Doctor: ${c.getD().getDoctorName()}
+                                                    </h4>
+                                                    <p class="">
+                                                        ${c.courseInfo}
+                                                    </p>
+                                                    <div class="tm-next enroll">
+                                                        <a href="#" class="">ENROLL</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </c:forEach>
                             </form>
 
                         </div>
@@ -105,20 +113,6 @@
         <!-- /SECTION -->
 
 
-        <!-- jQuery Plugins -->
-        <script>
-            function Mess(username) {
-                window.alert("Update Successful!");
-            }
-
-        </script>
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/nouislider.min.js"></script>
-        <script src="js/jquery.zoom.min.js"></script>
-        <script src="js/main.js"></script>
     </body>
 </html>
 

@@ -12,6 +12,8 @@
         <title>Courses Page</title>
         <link rel="stylesheet" href="css/course.css" type="text/css" />
         <link href="css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     </head>
     <body>
         <header class="header">
@@ -41,7 +43,7 @@
                 <ul class="header-links pull-right" style="list-style-type: none; display: flex;">
                     <c:if test="${sessionScope.acc.role == 2}">
                         <li>
-                            <a href="accinfo.jsp" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
+                            <a href="profile" style="border: 1px solid #ca4012;padding: 1rem 1rem;">
                                 <i class="fas fa-user"></i>${sessionScope.acc.username}
                             </a>
                         </li>

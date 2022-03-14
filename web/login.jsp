@@ -41,6 +41,7 @@
                 <input type="password" placeholder="Password" name="password"/>
                 <input type="checkbox" name="remember" value="remember"/> Remember me
                 <a href="#">Forgot your password?</a>
+                <p class="wrong" style="color: red">${mess}</p>
                 <button>
                     <input class="btn" type="submit" value="LOGIN"/>
                 </button>

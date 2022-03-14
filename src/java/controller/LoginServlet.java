@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
 import model.Doctor;
+import model.Patient;
 
 /**
  *
@@ -80,6 +81,8 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         AccountsDAO db = new AccountsDAO();
         Account account = db.getAP(username, password);
+        
+//        Patient p = new Patient(name, pass, phone, email, a);
 //       response.getWriter().print(username);
 //       response.getWriter().print(password);
 
@@ -121,7 +124,8 @@ public class LoginServlet extends HttpServlet {
             
         } else //login fail
         {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.setAttribute("mess", "Wrong username or password");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
