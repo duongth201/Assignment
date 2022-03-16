@@ -48,6 +48,22 @@
         <servlet-name>UnEnrollCourseServlet</servlet-name>
         <servlet-class>controller.UnEnrollCourseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminCourServlet</servlet-name>
+        <servlet-class>controller.AdminCourServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAddCourServlet</servlet-name>
+        <servlet-class>controller.AdminAddCourServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteCour</servlet-name>
+        <servlet-class>controller.AdminDeleteCour</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateCour</servlet-name>
+        <servlet-class>controller.AdminUpdateCour</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -95,6 +111,22 @@
     <servlet-mapping>
         <servlet-name>UnEnrollCourseServlet</servlet-name>
         <url-pattern>/unenroll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCourServlet</servlet-name>
+        <url-pattern>/admincourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminAddCourServlet</servlet-name>
+        <url-pattern>/addcourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteCour</servlet-name>
+        <url-pattern>/deletecourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateCour</servlet-name>
+        <url-pattern>/adminupdate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -60,11 +60,11 @@
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
-                            <div class="col-sm-8"><h2>Employee <b>Details</b> <a href="admincourse">Course</a></h2></div>
+                            <div class="col-sm-8"><h2>Employee <b>Details</b> <a href="doctorlist">Doctor</a></h2></div> 
                             <div class="col-sm-4" style=" text-align: center">
                                 <!--<form action="create">-->
                                     <button type="submit" class="btn btn-info add-new" style="background: #ca4012; border-color: #ca4012;">
-                                        <i class="fa fa-plus"></i> <a href="create">Add New</a>
+                                        <i class="fa fa-plus"></i> <a href="addcourse">Add New</a>
                                     </button>
                                 <!--</form>-->
                             </div>
@@ -73,44 +73,43 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Department ID</th>
-                                <th>Name</th>
-                                <th>Gender</th>
-                                <th>Age</th>
-                                <th>Account</th>
-                                <th>Password</th>
+                                <th>CourseID</th>
+                                <th>DoctorID</th>
+                                <th style="width: 167px;" >Name</th>
+                                <th>Time</th>
+                                <th>Price</th>
+                                <th style="width: 190px;">Img</th>
+                                <th>Infomation</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="s" items="${requestScope.doctor}">
+                            <c:forEach var="s" items="${requestScope.course}">
                                 <tr>
                                     <td>
-                                        ${s.doctorID}
+                                        ${s.courseID}
                                     </td> 
                                     <td>
-                                        ${s.departmentID}
+                                        ${s.d.getDoctorName()}
                                     </td>
                                     <td>
-                                        ${s.doctorName}
+                                        ${s.courseName}
                                     </td>
                                     <td>
-                                        <input type="checkbox" ${s.doctorGender=='true' ? "":"checked"} /> Male
-                                        <input type="checkbox" ${s.doctorGender=='false' ? "":"checked"} /> Female
+                                        ${s.courseTime}
                                     </td>             
                                     <td>
-                                        ${s.doctorAge}
+                                        ${s.coursePrice}
                                     </td>
                                     <td>
-                                        ${s.account.getUsername()}
+                                        <input type="text" value="${s.courseImg}" /> 
                                     </td>
                                     <td>  
-                                        ${s.account.getPassword()}
+                                        ${s.courseInfo}
                                     </td>
 
                                     <td> 
-                                    <a href="update?id=${s.doctorID}"> Update</a>
-                                    <a href="#" onclick = "Delete('${s.doctorID}', '${s.account.getUsername()}')">Delete</a>
+                                    <a href="adminupdate?id=${s.courseID}"> Update</a>
+                                    <a href="#" onclick = "Delete('${s.courseID}')">Delete</a>
                                     </td>
 
                                 </tr>
@@ -119,17 +118,16 @@
                         </tbody>
                     </table>
                 </div>
-                
             </div>
         </div>     
     </body>
     
     <script>
-       function Delete(doctorID, username){
+       function Delete(courseID){
 //           console.log(doctorID);
-           var option = confirm('Are you sure you want to delete? \ndoctorID: ' + doctorID +'\nAccount: ' + username);
+           var option = confirm('Are you sure you want to delete?');
            if(option === true) {
-               window.location.href = 'delete?doctorID=' + doctorID+'&account='+username;
+               window.location.href = 'deletecourse?courseID=' + courseID;
            }
            
        }

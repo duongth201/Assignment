@@ -22,10 +22,17 @@ public class Doctor {
     
     public Doctor() {
     }
-
+    
     public Doctor(String doctorName) {
         this.doctorName = doctorName;
     }
+
+    public Doctor(String doctorID, String doctorName) {
+        this.doctorID = doctorID;
+        this.doctorName = doctorName;
+    }
+    
+    
     
     public Doctor(String doctorID, String departmentID, String doctorName,int doctorAge, boolean doctorGender,  Account account) {
         this.doctorID = doctorID;

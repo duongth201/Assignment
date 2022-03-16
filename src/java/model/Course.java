@@ -29,6 +29,10 @@ public class Course {
         this.courseInfo = courseInfo;
     }
 
+//    public Course(String cid, String courname, String time, int price, String img, String info, Doctor doctor) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
     public String getCourseInfo() {
         return courseInfo;
     }

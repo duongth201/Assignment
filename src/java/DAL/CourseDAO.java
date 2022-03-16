@@ -51,6 +51,29 @@ public class CourseDAO extends BaseDAO<Course> {
         return courses;
     }
 
+    public ArrayList<Course> getCoursesbyDoctorID() {
+        ArrayList<Course> courses = new ArrayList<>();
+        try {
+            String sql = "select * from Course";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Course s = new Course();
+                s.setCourseID(rs.getString("courseID"));
+                s.setD(new Doctor(rs.getString("doctorID")));
+                s.setCourseName(rs.getString("courseName"));
+                s.setCourseTime(rs.getString("courseTimeWorking"));
+                s.setCoursePrice(rs.getString("coursePrice"));
+                s.setCourseImg(rs.getString("courseImg"));
+                s.setCourseInfo(rs.getString("courseInfo"));
+                courses.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return courses;
+    }
+
     public int getCount() {
         try {
             String sql = "SELECT COUNT(*) AS TOTAL FROM Course";
@@ -136,7 +159,7 @@ public class CourseDAO extends BaseDAO<Course> {
         }
         return false;
     }
-    
+
     public void unEnroll(String patinetID, String courseID) {
         try {
             String sql = "DELETE FROM Patient_Course WHERE patientID = ? and courseID = ?;";
@@ -146,6 +169,111 @@ public class CourseDAO extends BaseDAO<Course> {
             statement.executeUpdate();
         } catch (Exception e) {
             Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+//    admin course
+    public void insertCourse(Course c) {
+        try {
+            String sql = "INSERT INTO [dbo].[Course]\n"
+                    + "           ([courseID]\n"
+                    + "           ,[doctorID]\n"
+                    + "           ,[courseName]\n"
+                    + "           ,[courseTimeWorking]\n"
+                    + "           ,[coursePrice]\n"
+                    + "           ,[courseImg]\n"
+                    + "           ,[courseInfo])\n"
+                    + "     VALUES\n"
+                    + "           (?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, c.getCourseID());
+            statement.setString(2, c.getD().getDoctorID());
+            statement.setString(3, c.getCourseName());
+            statement.setString(4, c.getCourseTime());
+            statement.setString(5, c.getCoursePrice());//------------
+            statement.setString(6, c.getCourseImg());
+            statement.setString(7, c.getCourseInfo());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void deleteCourse(String courseID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Course]\n"
+                    + "      WHERE courseID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, courseID);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Course getCourse(String courseID) {
+        ArrayList<Doctor> courses = new ArrayList<>();
+        try {
+            String sql = "SELECT [courseID]\n"
+                    + "      ,c.[doctorID]\n"
+                    + "	  ,d.doctorName\n"
+                    + "      ,[courseName]\n"
+                    + "      ,[courseTimeWorking]\n"
+                    + "      ,[coursePrice]\n"
+                    + "      ,[courseImg]\n"
+                    + "      ,[courseInfo]\n"
+                    + "  FROM [ass_prj].[dbo].[Course] c inner join Doctor d\n"
+                    + "  on c.doctorID = d.doctorID\n"
+                    + "  where [courseID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, courseID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Course s = new Course();
+                s.setCourseID(rs.getString("courseID"));
+                s.setD(new Doctor(rs.getString("doctorID"), rs.getString("doctorName")));
+                s.setCourseName(rs.getString("courseName"));
+                s.setCourseTime(rs.getString("courseTimeWorking"));
+                s.setCoursePrice(rs.getString("coursePrice"));
+                s.setCourseImg(rs.getString("courseImg"));
+                s.setCourseInfo(rs.getString("courseInfo"));
+                return s;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public void updateCourse(Course d) {
+        try {
+            String sql = "UPDATE [dbo].[Course]\n"
+                    + "   SET [courseID] = ?\n"
+                    + "      ,[doctorID] = ?\n"
+                    + "      ,[courseName] = ?\n"
+                    + "      ,[courseTimeWorking] = ?\n"
+                    + "      ,[coursePrice] = ?\n"
+                    + "      ,[courseImg] = ?\n"
+                    + "      ,[courseInfo] =?\n"
+                    + " WHERE [courseID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, d.getCourseID());
+            statement.setString(2, d.getD().getDoctorID());
+            statement.setString(3, d.getCourseName());
+            statement.setString(4, d.getCourseTime());
+            statement.setString(5, d.getCoursePrice());
+            statement.setString(6, d.getCourseImg());
+            statement.setString(7, d.getCourseInfo());
+            statement.setString(8, d.getCourseID());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
