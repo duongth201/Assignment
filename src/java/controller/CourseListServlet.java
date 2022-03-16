@@ -7,6 +7,7 @@ package controller;
 
 import DAL.CourseDAO;
 import DAL.DoctorDAO;
+import DAL.PatientDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,8 +15,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
 import model.Course;
 import model.Doctor;
+import model.Patient;
 
 /**
  *
@@ -50,13 +54,17 @@ public class CourseListServlet extends HttpServlet {
         request.setAttribute("totalpage", totalpage);
         request.setAttribute("pageIndex", pageIndex);
         
+//        check enroll -> jsp
+        PatientDAO pdao = new PatientDAO();
+        HttpSession session = request.getSession();
+        Account acc = (Account) session.getAttribute("acc");
+        if(acc!=null){
+            Patient p = pdao.getPatient(acc.getUsername());
+            request.setAttribute("patientID", p.getPatientID());
+            request.setAttribute("db", db);
+        }
         
-//        attribute info
-//        DoctorDAO ddao = new DoctorDAO();
-//        ArrayList<Doctor> doctors = ddao.getDoctors();
-//        request.setAttribute("doctor", doctors);
-        
-        
+
         ArrayList<Course> courses = new ArrayList<>();
         courses = db.getCourses();
         request.setAttribute("courses", courses);

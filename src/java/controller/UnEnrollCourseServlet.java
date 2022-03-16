@@ -5,22 +5,23 @@
  */
 package controller;
 
-import DAL.DoctorDAO;
+import DAL.CourseDAO;
+import DAL.PatientDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Account;
-import model.Doctor;
+import model.Patient;
 
 /**
  *
  * @author ADMIN
  */
-public class DoctorUpdate extends HttpServlet {
+public class UnEnrollCourseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,18 +35,16 @@ public class DoctorUpdate extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DoctorUpdate</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DoctorUpdate at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        PatientDAO pdao = new PatientDAO();
+        HttpSession session = request.getSession();
+        Account acc = (Account) session.getAttribute("acc");
+        Patient p = pdao.getPatient(acc.getUsername());
+        
+        String cour = request.getParameter("cid");
+        CourseDAO cdao = new CourseDAO();
+        cdao.unEnroll(p.getPatientID(), cour);
+//        response.getWriter().print(cour);
+        response.sendRedirect("pcourse");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,13 +59,7 @@ public class DoctorUpdate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        Doctor d = new Doctor();
-        DoctorDAO ddao = new DoctorDAO();
-        d = ddao.getDoctor(id);
-//        response.getWriter().print(d.toString());
-        request.setAttribute("d", d);
-        request.getRequestDispatcher("updatedoctor.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -80,22 +73,7 @@ public class DoctorUpdate extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String did = request.getParameter("did");
-        String name = request.getParameter("name");
-        boolean gender = Boolean.parseBoolean(request.getParameter("gender")) ;
-        int age = Integer.parseInt(request.getParameter("age"));
-        String account = request.getParameter("account");
-        String password = request.getParameter("password");
-        DoctorDAO ddao = new DoctorDAO();
-        Account a = new Account(account, password, 1);
-        Doctor d = new Doctor(id, did, name, age, gender, new Account(account, password, 1));
-        ddao.updateDoctor(d); 
-        
-        ddao.updateAPDoctor(a);
-//        response.getWriter().print(d.getDoctorID());
-//        response.getWriter().print(d);
-        response.sendRedirect("doctorlist");
+        processRequest(request, response);
     }
 
     /**

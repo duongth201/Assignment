@@ -66,7 +66,7 @@ public class DoctorDAO extends BaseDAO<Doctor> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, a.getUsername());
             statement.setString(2, a.getPassword());
-            statement.setInt(3, 2);
+            statement.setInt(3, 1);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,11 +114,11 @@ public class DoctorDAO extends BaseDAO<Doctor> {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void deleteDoctor(String doctorID) {
         try {
-            String sql = "DELETE FROM [dbo].[Doctor]\n" +
-                        "      WHERE doctorID = ?";
+            String sql = "DELETE FROM [dbo].[Doctor]\n"
+                    + "      WHERE doctorID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, doctorID);
             statement.executeUpdate();
@@ -126,51 +126,94 @@ public class DoctorDAO extends BaseDAO<Doctor> {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public static void main(String[] args) {
         DoctorDAO d = new DoctorDAO();
-        d.deleteDoctor("x7");
-        d.deleteAccDoctor("x6");
-        
+//        d.deleteDoctor("x7");
+//        d.deleteAccDoctor("x6");
+//        ArrayList<Doctor> a = new ArrayList<>();
+        Doctor a = new Doctor("x9999", "D02", "10", 20, false, new Account("dg", "100", 1));
+
+        d.updateDoctor(a);
+        System.out.println(d);
     }
-//   public Doctor getDoctor(int id) {
-//       try {
-//           String sql = "SELECT s.id,s.name,s.gender,s.dob, s.email FROM Student s\n"
-//                   + "WHERE s.id = ?";
-//           PreparedStatement statement = connection.prepareStatement(sql);
-//           statement.setInt(1, id);
-//           ResultSet rs = statement.executeQuery();
-//           if (rs.next()) {
-////               Student s = new Student();
-////               s.setId(rs.getInt("id"));
-////               s.setName(rs.getString("name"));
-////               s.setDob(rs.getDate("dob"));
-////               s.setGender(rs.getBoolean("gender"));
-////               s.setEmail(rs.getString("email"));
-////               return s;
-//           }
-//
-//       } catch (SQLException ex) {
-//           Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
-//       }
-//       return null;
-//   }
-//   public void updateStudent(Doctor s) {
-//       try {
-//           String sql = "UPDATE [Student]\n"
-//                   + "   SET [name] = ?\n"
-//                   + "      ,[dob] = ?\n"
-//                   + "      ,[gender] = ?\n"
-//                   + "      ,[email] = ?\n"
-//                   + " WHERE [id] = ?";
-//           PreparedStatement statement = connection.prepareStatement(sql);
-////           statement.setString(1, s.getName());
-////           statement.setDate(2, new java.sql.Date(s.getDob().getTime()));
-////           statement.setBoolean(3, s.isGender());
-////           statement.setString(4, s.getEmail());
-////           statement.setInt(5, s.getId());
-//           statement.executeUpdate();
-//       } catch (SQLException ex) {
-//           Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
-//       }
-//   }
+
+    public Doctor getDoctor(String id) {
+        ArrayList<Doctor> doctors = new ArrayList<>();
+        try {
+            String sql = "SELECT [doctorID]\n"
+                    + "      ,[departmentID]\n"
+                    + "      ,[doctorName]\n"
+                    + "      ,[doctorPosition]\n"
+                    + "      ,[doctorAge]\n"
+                    + "      ,[doctorGender]\n"
+                    + "      ,[doctorPhone]\n"
+                    + "	  ,a.[username]\n"
+                    + "	  ,a.[password]\n"
+                    + "	  ,a.[role]\n"
+                    + "  FROM [ass_prj].[dbo].[Doctor] d inner join [ass_prj].[dbo].[Account] a \n"
+                    + "  on d.[username] = a.[username]"
+                    + "  where [doctorID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Doctor s = new Doctor();
+                s.setDoctorID(rs.getString("doctorID"));
+                s.setDepartmentID(rs.getString("departmentID"));
+                s.setDoctorName(rs.getString("doctorName"));
+                s.setDoctorAge(rs.getInt("doctorAge"));
+                s.setDoctorGender(rs.getBoolean("doctorGender"));
+                s.setDoctorPhone(rs.getString("doctorPhone"));
+                s.setAccount(new Account(rs.getString("username"), rs.getString("password"), 1));
+                return s;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public void updateDoctor(Doctor d) {
+        try {
+            String sql = "UPDATE [dbo].[Doctor]\n"
+                    + "   SET [doctorID] = ?\n"
+                    + "      ,[departmentID] = ?\n"
+                    + "      ,[doctorName] = ?\n"
+                    + "      ,[doctorAge] = ?\n"
+                    + "      ,[doctorGender] = ?\n"
+                    + "      ,[username] = ?\n"
+                    + " WHERE [username] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, d.getDoctorID());
+            statement.setString(2, d.getDepartmentID());
+            statement.setString(3, d.getDoctorName());
+            statement.setInt(4, d.getDoctorAge());
+            statement.setBoolean(5, d.isDoctorGender());
+            statement.setString(6, d.getAccount().getUsername());
+            statement.setString(7, d.getAccount().getUsername());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void updateAPDoctor(Account d) {
+        try {
+            String sql = "UPDATE [dbo].[Account]\n"
+                    + "   SET [username] = ?\n"
+                    + "      ,[password] = ?\n"
+                    + "      ,[role] = ?\n"
+                    + " WHERE [username] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, d.getUsername());
+            statement.setString(2, d.getPassword());
+            statement.setInt(3, 1);
+            statement.setString(4, d.getUsername());
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

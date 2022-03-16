@@ -26,7 +26,6 @@
                 <a href="#">Courses</a>
                 <a href="#about">About</a>
                 <a href="#doctors">Doctors</a>
-                <a href="#book">Book</a>
                 <a href="#review">Review</a>
             </nav>
 
@@ -89,11 +88,16 @@
                                 
             <c:if test="${sessionScope.acc == null}">
                 <a href="login.jsp" class="">ENROLL </a>
-                
 
             </c:if>
             <c:if test="${sessionScope.acc.role == 2}">
-                <a href="enroll?cid=${c.courseID}" class="">ENROLL </a>
+                <c:if test="${requestScope.db.checkEnroll(requestScope.patientID, c.courseID)==false}" >
+                    <a href="enroll?cid=${c.courseID}" onclick="Mess()" class="">
+                        ENROLL 
+                    </a>
+                </c:if>
+
+                
             </c:if>
                                 
                             </div>
@@ -137,4 +141,10 @@
         </section>
         <!-- footer ends -->
     </body>
+    <script>
+            function Mess() {
+                window.alert("Enroll Successful!");
+            }
+
+    </script>
 </html>

@@ -51,7 +51,7 @@ public class AccountsDAO extends BaseDAO<Account> {
 
    
    public ArrayList<Doctor> getDoctors() {
-       ArrayList<Doctor> students = new ArrayList<>();
+       ArrayList<Doctor> doctors = new ArrayList<>();
        try {
            String sql = "SELECT [doctorID]\n" +
                         "      ,[departmentID]\n" +
@@ -77,12 +77,12 @@ public class AccountsDAO extends BaseDAO<Account> {
                s.setDoctorGender(rs.getBoolean("doctorGender"));
                s.setDoctorPhone(rs.getString("doctorPhone"));
                s.setAccount(new Account(rs.getString("username"), rs.getString("password"), 1));
-               students.add(s);
+               doctors.add(s);
            }
        } catch (SQLException ex) {
            Logger.getLogger(AccountsDAO.class.getName()).log(Level.SEVERE, null, ex);
        }
-       return students;
+       return doctors;
    }
 
 //signup

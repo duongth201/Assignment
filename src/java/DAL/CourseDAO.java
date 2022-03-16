@@ -116,6 +116,39 @@ public class CourseDAO extends BaseDAO<Course> {
         }
     }
 
+//    check enroll 
+    public boolean checkEnroll(String patinetID, String courseID) {
+        try {
+            String sql = "SELECT [patientID]\n"
+                    + "      ,[courseID]\n"
+                    + "  FROM [ass_prj].[dbo].[Patient_Course]\n"
+                    + "  where patientID = ? and courseID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, patinetID);
+            statement.setString(2, courseID);
+
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return false;
+    }
+    
+    public void unEnroll(String patinetID, String courseID) {
+        try {
+            String sql = "DELETE FROM Patient_Course WHERE patientID = ? and courseID = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, patinetID);
+            statement.setString(2, courseID);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
     public static void main(String[] args) {
         CourseDAO db = new CourseDAO();
 //        ArrayList<Course> c = new ArrayList<>();

@@ -44,7 +44,12 @@ public class EnrollCourseServlet extends HttpServlet {
         String cour = request.getParameter("cid");
         CourseDAO cdao = new CourseDAO();
         cdao.getEnroll(p.getPatientID(), cour);
+        
+//        request.setAttribute("cdao", cdao);
+
         response.sendRedirect("pcourse");
+//        request.getRequestDispatcher("course.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

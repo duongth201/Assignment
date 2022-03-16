@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/course.css" type="text/css" />
         <!-- Bootstrap -->
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-        
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
@@ -65,7 +65,7 @@
                         <li>INFORMATION:</li>
                         <li><a href="profile">Profile</a></li>
                         <li> / </li>
-                        <li><a href="pcourse.jsp">Course</a></li>
+                        <li><a href="pcourse">Course</a></li>
                     </ul>
                     <div class="col-md-12">
                         <!-- Billing Details -->
@@ -79,7 +79,9 @@
                                     <input type="text" class="form-control" name="id" value="${sessionScope.acc.username}" readonly>
                                 </div>
 
+
                                 <c:forEach var="c" items="${requestScope.c}">
+
                                     <div class="container">
                                         <div class="row content-info">
                                             <div class="col-lg-3">
@@ -94,7 +96,11 @@
                                                     <p class="">
                                                         ${c.courseInfo}
                                                     </p>
-                                                    
+                                                    <div class="tm-next enroll">
+                                                        <a href="#" onclick="Mess('${c.courseID}')" class="">
+                                                            UN-ENROLL 
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,5 +119,14 @@
 
 
     </body>
+    <script>
+            function Mess(courseID) {
+               var option = confirm('Are you sure you want to un-enroll?');
+                if(option === true) {
+                    window.location.href = 'unenroll?cid=' + courseID;
+                }
+            }
+
+    </script>
 </html>
 

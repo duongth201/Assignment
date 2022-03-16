@@ -102,11 +102,13 @@ public class Doctor {
         this.account = account;
     }
 
-
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Doctor{" + "doctorID=" + doctorID + ", departmentID=" + departmentID + ", doctorName=" + doctorName + ", doctorGender=" + doctorGender + ", doctorAge=" + doctorAge + ", doctorPhone=" + doctorPhone + ", account=" + account + '}';
     }
+
+
+   
     
     
 }

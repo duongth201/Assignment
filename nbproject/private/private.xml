@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/controller/SignupServlet.java</file>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/web/css/login.css</file>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/web/accinfo.jsp</file>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/DAL/PatientDAO.java</file>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/DAL/AccountsDAO.java</file>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/web/login.jsp</file>
-            <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/controller/LoginServlet.java</file>
+            <file>file:/D:/.Spring%202022/PRJ301/Assignment/web/WEB-INF/web.xml</file>
+            <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/DAL/CourseDAO.java</file>
+            <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/controller/CourseListServlet.java</file>
+            <file>file:/D:/.Spring%202022/PRJ301/Assignment/web/index.jsp</file>
+            <file>file:/D:/.Spring%202022/PRJ301/Assignment/web/course.jsp</file>
             <file>file:/D:/.Spring%202022/PRJ301/Assignment/src/java/controller/EnrollCourseServlet.java</file>
         </group>
     </open-files>

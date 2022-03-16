@@ -197,7 +197,7 @@ and open the template in the editor.
 
         <!-- doctors starts  -->
 
-        <section class="doctors" id="doctors">
+<!--        <section class="doctors" id="doctors">
             <h1 class="heading"> <span>our doctors</span> </h1>
 
             <div class="box-container">
@@ -247,7 +247,7 @@ and open the template in the editor.
                 </div>
 
             </div>
-        </section>
+        </section>-->
 
         <!-- doctors ends -->
 

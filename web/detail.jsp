@@ -24,12 +24,11 @@
             </div>
 
             <nav class="navbar">
-                <a href="index.jsp">Home</a>
-                <a href="index.jsp">Services</a>
-                <a href="index.jsp">About</a>
-                <a href="index.jsp">Doctors</a>
-                <a href="index.jsp">Book</a>
-                <a href="index.jsp">Review</a>
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+                <a href="#">Doctors</a>
+                <a href="#">Review</a>
             </nav>
 
             <ul class="header-links pull-right" style="list-style-type: none; display: flex;">
@@ -96,7 +95,8 @@
                                         ${s.doctorName}
                                     </td>
                                     <td>
-                                        <input type="checkbox" ${s.doctorGender=='1' ? "":"checked"} />
+                                        <input type="checkbox" ${s.doctorGender=='true' ? "":"checked"} /> Male
+                                        <input type="checkbox" ${s.doctorGender=='false' ? "":"checked"} /> Female
                                     </td>             
                                     <td>
                                         ${s.doctorAge}
@@ -104,11 +104,11 @@
                                     <td>
                                         ${s.account.getUsername()}
                                     </td>
-<!--                                    <td>
-                                        
-                                    </td>-->
-                                    <td>   
+                                    <td>  
+                                        ${s.account.getPassword()}
+                                    </td>
 
+                                    <td> 
                                     <a href="update?id=${s.doctorID}"> Update</a>
                                     <a href="#" onclick = "Delete('${s.doctorID}', '${s.account.getUsername()}')">Delete</a>
                                     </td>

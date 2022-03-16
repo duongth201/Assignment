@@ -88,9 +88,9 @@ request.getRequestDispatcher("doctorcreate.jsp").forward(request, response);
         
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        Doctor d = new Doctor(id, departid, username, age, gender, new Account(username, password, 2));
+        Doctor d = new Doctor(id, departid, username, age, gender, new Account(username, password, 1));
         DoctorDAO ddao = new DoctorDAO();
-        ddao.insertAccDoctor(new Account(username, password, 2));
+        ddao.insertAccDoctor(new Account(username, password, 1));
         ddao.insertDoctor(d);
 
         response.sendRedirect("doctorlist");
