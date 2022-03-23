@@ -95,8 +95,8 @@
                                         ${s.doctorName}
                                     </td>
                                     <td>
-                                        <input type="checkbox" ${s.doctorGender=='true' ? "":"checked"} /> Male
-                                        <input type="checkbox" ${s.doctorGender=='false' ? "":"checked"} /> Female
+                                        <input type="checkbox" ${s.doctorGender=='true' ? "checked":""} /> Male
+                                        <input type="checkbox" ${s.doctorGender=='false' ? "checked":""} /> Female
                                     </td>             
                                     <td>
                                         ${s.doctorAge}

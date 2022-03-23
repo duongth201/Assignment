@@ -90,9 +90,7 @@
                                     <input type="text" class="form-control" name="phone" value="${requestScope.patient.patientPhone}">
                                 </div>
                                 <input type="submit" class="btn" value="Save" onclick = "Mess('${sessionScope.acc.username}')"/>
-                                <!--                                <div class="form-group">
-                                                                    
-                                                                </div>-->
+
                             </form>
 
                         </div>

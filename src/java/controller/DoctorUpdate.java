@@ -64,7 +64,7 @@ public class DoctorUpdate extends HttpServlet {
         Doctor d = new Doctor();
         DoctorDAO ddao = new DoctorDAO();
         d = ddao.getDoctor(id);
-//        response.getWriter().print(d.toString());
+//        response.getWriter().print(d);
         request.setAttribute("d", d);
         request.getRequestDispatcher("updatedoctor.jsp").forward(request, response);
     }

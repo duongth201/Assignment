@@ -139,21 +139,18 @@ public class DoctorDAO extends BaseDAO<Doctor> {
     }
 
     public Doctor getDoctor(String id) {
-        ArrayList<Doctor> doctors = new ArrayList<>();
         try {
             String sql = "SELECT [doctorID]\n"
                     + "      ,[departmentID]\n"
                     + "      ,[doctorName]\n"
-                    + "      ,[doctorPosition]\n"
                     + "      ,[doctorAge]\n"
                     + "      ,[doctorGender]\n"
-                    + "      ,[doctorPhone]\n"
-                    + "	  ,a.[username]\n"
-                    + "	  ,a.[password]\n"
-                    + "	  ,a.[role]\n"
-                    + "  FROM [ass_prj].[dbo].[Doctor] d inner join [ass_prj].[dbo].[Account] a \n"
-                    + "  on d.[username] = a.[username]"
-                    + "  where [doctorID] = ?";
+                    + "      ,a.[username]\n"
+                    + "	  ,a.password\n"
+                    + "	  ,a.role\n"
+                    + "  FROM [dbo].[Doctor] d inner join Account a\n"
+                    + "  on d.username = a.username\n"
+                    + "  where d.doctorID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet rs = statement.executeQuery();
@@ -164,7 +161,6 @@ public class DoctorDAO extends BaseDAO<Doctor> {
                 s.setDoctorName(rs.getString("doctorName"));
                 s.setDoctorAge(rs.getInt("doctorAge"));
                 s.setDoctorGender(rs.getBoolean("doctorGender"));
-                s.setDoctorPhone(rs.getString("doctorPhone"));
                 s.setAccount(new Account(rs.getString("username"), rs.getString("password"), 1));
                 return s;
             }
@@ -182,8 +178,8 @@ public class DoctorDAO extends BaseDAO<Doctor> {
                     + "      ,[doctorName] = ?\n"
                     + "      ,[doctorAge] = ?\n"
                     + "      ,[doctorGender] = ?\n"
-                    + "      ,[username] = ?\n"
-                    + " WHERE [username] = ?";
+                    + "      ,[username] =?\n"
+                    + " WHERE [username] =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, d.getDoctorID());
             statement.setString(2, d.getDepartmentID());
